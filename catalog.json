@@ -1,26 +1,5 @@
 [
   {
-    "slug": "big-test",
-    "title": "큰 페이지 자동 게시 시험",
-    "team": "중등교육팀",
-    "owner": "시험",
-    "ext": "",
-    "desc": "여러 파일로 된 시험 페이지",
-    "audience": "schools",
-    "until": "",
-    "created": "2026-11-26T15:33:27+09:00",
-    "updated": "2026-11-26T15:33:27+09:00",
-    "uid": "zz-big",
-    "history": [
-      {
-        "id": "b1",
-        "kind": "new",
-        "at": "2026-11-26T15:33:27+09:00"
-      }
-    ],
-    "url": "https://cnesed640.github.io/apps/big-test/"
-  },
-  {
     "slug": "check-gongdong",
     "title": "학점이수·최성보 안내서",
     "team": "중등교육팀",
