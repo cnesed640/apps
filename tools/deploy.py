@@ -160,7 +160,7 @@ def main():
     (repo / "catalog.json").write_text(json.dumps(pages, ensure_ascii=False, indent=2), encoding="utf-8")
     (repo / ".nojekyll").touch()
     expired = [p["slug"] for p in pages if p.get("until") and p["until"] < a.today]
-    catalog = [{k: p.get(k, "") for k in ("slug", "title", "team", "owner", "desc", "audience", "url", "updated", "uid")}
+    catalog = [{k: p.get(k, "") for k in ("slug", "title", "team", "owner", "desc", "audience", "url", "updated", "created", "uid")}
                for p in pages]
     for c in catalog:
         c["updatedAt"] = c.pop("updated")
