@@ -1,5 +1,26 @@
 [
   {
+    "slug": "auto-test",
+    "title": "자동 게시 시험",
+    "team": "중등교육팀",
+    "owner": "김시형",
+    "ext": "",
+    "desc": "자동 게시 시험용",
+    "audience": "schools",
+    "until": "",
+    "created": "2026-11-26T13:07:00+09:00",
+    "updated": "2026-11-26T13:07:00+09:00",
+    "uid": "zz-auto",
+    "history": [
+      {
+        "id": "a1",
+        "kind": "new",
+        "at": "2026-11-26T13:07:00+09:00"
+      }
+    ],
+    "url": "https://cnesed640.github.io/apps/auto-test/"
+  },
+  {
     "slug": "check-gongdong",
     "title": "학점이수·최성보 안내서",
     "team": "중등교육팀",
