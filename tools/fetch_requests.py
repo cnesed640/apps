@@ -92,8 +92,10 @@ def drop_branch(code):
     """처리한 우편함 가지를 지운다(실패해도 게시 결과에는 영향 없음)."""
     code = (code or "").strip().upper()
     if CODE_RE.match(code) and os.environ.get("INBOX_TOKEN"):
-        r = subprocess.run(["git", *NOHDR, "push", "-q", inbox_url(), "--delete", f"drop/{code}"],
-                           capture_output=True, text=True, cwd=tempfile.gettempdir())
+        with tempfile.TemporaryDirectory() as tmp:  # push는 git 폴더 안에서만 된다
+            subprocess.run(["git", "init", "-q"], cwd=tmp, capture_output=True)
+            r = subprocess.run(["git", *NOHDR, "push", "-q", inbox_url(), "--delete", f"drop/{code}"],
+                               capture_output=True, text=True, cwd=tmp)
         if r.returncode != 0:
             print(f"우편함 가지 drop/{code} 삭제 실패: {r.stderr.strip()[:200]}")
 
