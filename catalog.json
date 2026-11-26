@@ -1,5 +1,26 @@
 [
   {
+    "slug": "code-test3",
+    "title": "전달 코드 시험 3",
+    "team": "중등교육팀",
+    "owner": "시험",
+    "ext": "",
+    "desc": "가지 삭제 재확인",
+    "audience": "schools",
+    "until": "",
+    "created": "2026-11-26T16:03:32+09:00",
+    "updated": "2026-11-26T16:03:32+09:00",
+    "uid": "zz-code",
+    "history": [
+      {
+        "id": "c13",
+        "kind": "new",
+        "at": "2026-11-26T16:03:32+09:00"
+      }
+    ],
+    "url": "https://cnesed640.github.io/apps/code-test3/"
+  },
+  {
     "slug": "check-gongdong",
     "title": "학점이수·최성보 안내서",
     "team": "중등교육팀",
