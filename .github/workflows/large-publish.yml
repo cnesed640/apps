@@ -1,0 +1,50 @@
+# 큰 페이지·여러 파일 자동 게시
+# 정기 작업(Claude)이 requests/<신청id>.json 을 올리면 실행된다.
+# 링크에서 파일을 내려받아 tools/deploy.py 로 검사·게시하고, 결과를 results/ 에 남긴다.
+name: 큰 페이지 자동 게시
+
+on:
+  push:
+    branches: [main]
+    paths: ["requests/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: large-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 요청 처리
+        run: python3 tools/fetch_requests.py
+
+      - name: 결과 올리기
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "큰 페이지 자동 게시: $(ls results 2>/dev/null | tr '\n' ' ')"
+            git pull --rebase origin main
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # GITHUB_TOKEN 으로 올린 커밋은 Pages 빌드를 시작시키지 않으므로 직접 요청한다.
+      - name: Pages 빌드 요청
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds" || echo "Pages 빌드 요청 실패 — 다음 push 때 반영됩니다"

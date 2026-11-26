@@ -17,6 +17,7 @@ batch.json 형식:
 
 하는 일:
   - new/update: <slug>/index.html, <slug>/meta.json 작성 (저장소 맨 위)
+      · item에 "html" 대신 "dir"(내려받아 푼 폴더 경로)이 있으면 그 폴더 전체를 게시 (여러 파일)
       · 바닥글(data-cne-footer)이 없으면 표준 바닥글을 넣는다
       · 대상이 '학교·교사'면 검색 노출 막기(noindex)를 넣는다
   - remove: <slug>/ 삭제
@@ -34,7 +35,46 @@ AUD = {"schools": "학교·교사", "public": "누구나"}
 MAX = 240_000
 BLOCK = [(re.compile(r"(?<!\d)\d{6}[- ]?[1-4]\d{6}(?!\d)"), "주민등록번호 형태"),
          (re.compile(r"(?<!\d)01[016789][-. ]?\d{3,4}[-. ]?\d{4}(?!\d)"), "휴대전화 번호")]
-RESERVED = {"tools", "assets", "apps", "index", "catalog", "readme", "admin", "api", "static"}
+RESERVED = {"tools", "assets", "apps", "index", "catalog", "readme", "admin", "api", "static", "requests", "results"}
+# 폴더(여러 파일) 게시 한도와 허용 확장자
+DIR_MAX_FILES = 300
+DIR_MAX_TOTAL = 100 * 1024 * 1024
+DIR_MAX_FILE = 25 * 1024 * 1024
+DIR_EXT = {".html", ".htm", ".css", ".js", ".mjs", ".json", ".csv", ".txt", ".md", ".xml",
+           ".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg", ".ico", ".avif",
+           ".woff", ".woff2", ".ttf", ".otf", ".pdf", ".mp3", ".mp4", ".webm", ".wasm", ".map"}
+TEXT_EXT = {".html", ".htm", ".js", ".mjs", ".json", ".csv", ".txt", ".md", ".xml", ".svg"}
+
+
+def check_dir(root):
+    root = Path(root)
+    if not root.is_dir():
+        return "내려받은 파일을 찾지 못함"
+    if not (root / "index.html").is_file():
+        return "맨 위에 index.html이 없음 — 첫 화면 파일 이름을 index.html로 해 주세요"
+    files = [f for f in root.rglob("*") if not f.is_dir()]
+    if len(files) > DIR_MAX_FILES:
+        return f"파일이 {len(files)}개로 너무 많음({DIR_MAX_FILES}개까지)"
+    total = 0
+    for f in files:
+        if f.is_symlink():
+            return f"링크 파일은 올릴 수 없음: {f.relative_to(root)}"
+        if f.suffix.lower() not in DIR_EXT:
+            return f"올릴 수 없는 파일 형식: {f.relative_to(root)}"
+        size = f.stat().st_size
+        if size > DIR_MAX_FILE:
+            return f"파일 하나가 25MB를 넘음: {f.relative_to(root)}"
+        total += size
+        if f.suffix.lower() in TEXT_EXT:
+            text = f.read_text(encoding="utf-8", errors="ignore")
+            if re.search(r"claude\.use\(|window\.claude", text):
+                return f"Claude 안에서만 되는 기능(claude.use)을 씀 — 밖에서는 작동하지 않음 ({f.relative_to(root)})"
+            for rx, label in BLOCK:
+                if rx.search(text):
+                    return f"{label}가 들어 있어 자동 게시를 막음 — 지우고 다시 내 주세요 ({f.relative_to(root)})"
+    if total > DIR_MAX_TOTAL:
+        return "전체 크기가 100MB를 넘음"
+    return None
 
 
 def footer(m):
@@ -67,6 +107,8 @@ def check(it):
         return "쓸 수 없는 주소 이름(예약어)"
     if it.get("kind") not in ("new", "update", "remove"):
         return "종류 값이 맞지 않음"
+    if it["kind"] != "remove" and it.get("dir"):
+        return check_dir(it["dir"])
     if it["kind"] != "remove":
         page = it.get("html") or ""
         if not re.search(r"<!doctype html|<html[\s>]", page, re.I):
@@ -127,7 +169,7 @@ def main():
             owner = json.loads((d / "meta.json").read_text(encoding="utf-8")).get("uid") if (d / "meta.json").exists() else None
             if owner and owner != it.get("uid"):
                 err = "본인이 올린 페이지만 고치거나 내릴 수 있음"
-        if not err and it["kind"] != "remove" and it.get("sha256"):
+        if not err and it["kind"] != "remove" and it.get("sha256") and "html" in it:
             if hashlib.sha256(it["html"].encode("utf-8")).hexdigest() != it["sha256"]:
                 r.update(status="retry", error="옮기는 중 내용이 달라짐(해시 불일치) — 다음 실행 때 다시 시도")
                 out.append(r)
@@ -144,8 +186,15 @@ def main():
             m = {k: it.get(k, "") for k in ("slug", "title", "team", "owner", "ext", "desc", "audience", "until")}
             m.update(created=old.get("created", now), updated=now, uid=it.get("uid"),
                      history=(old.get("history", []) + [{"id": it.get("id"), "kind": it["kind"], "at": now}])[-20:])
-            d.mkdir(parents=True, exist_ok=True)
-            (d / "index.html").write_text(prepare(it["html"], m), encoding="utf-8")
+            if d.exists():
+                shutil.rmtree(d)  # 고치기: 이전 판의 파일을 남기지 않는다
+            if it.get("dir"):
+                shutil.copytree(it["dir"], d)
+                for h in list(d.rglob("*.html")) + list(d.rglob("*.htm")):
+                    h.write_text(prepare(h.read_text(encoding="utf-8", errors="replace"), m), encoding="utf-8")
+            else:
+                d.mkdir(parents=True)
+                (d / "index.html").write_text(prepare(it["html"], m), encoding="utf-8")
             (d / "meta.json").write_text(json.dumps(m, ensure_ascii=False, indent=2), encoding="utf-8")
             r.update(status="live", url=f"{base}{it['slug']}/")
         out.append(r)
