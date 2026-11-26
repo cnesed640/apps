@@ -25,6 +25,8 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: 요청 처리
+        env:
+          INBOX_TOKEN: ${{ secrets.INBOX_TOKEN }}
         run: python3 tools/fetch_requests.py
 
       - name: 결과 올리기

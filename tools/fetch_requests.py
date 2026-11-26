@@ -2,7 +2,8 @@
 """큰 페이지·여러 파일 신청 처리 — GitHub 자동 작업이 실행한다.
 
 requests/<신청id>.json 을 하나씩 읽어
-  1. link(구글 드라이브 공유 링크, Dropbox, 일반 https 주소)에서 파일을 내려받고
+  1. code(전달 코드)가 있으면 비공개 우편함 저장소의 drop/<코드> 가지에서, 아니면
+     link(구글 드라이브 공유 링크, Dropbox, 일반 https 주소)에서 파일을 내려받고
   2. zip이면 안전하게 풀고(index.html이 있는 폴더를 찾음), html이면 index.html 한 장으로 두고
   3. tools/deploy.py 로 검사·게시한 뒤
   4. results/<신청id>.json 에 결과를 남기고 요청 파일을 지운다.
@@ -10,9 +11,9 @@ requests/<신청id>.json 을 하나씩 읽어
 
 요청 파일 형식:
 {"uid","id","kind":"new|update|remove","slug","title","team","owner","ext","desc",
- "audience","until","createdAt","link"}
+ "audience","until","createdAt","link" 또는 "code"}
 """
-import json, re, shutil, subprocess, sys, tempfile, urllib.parse, urllib.request, zipfile
+import json, os, re, shutil, subprocess, sys, tempfile, urllib.parse, urllib.request, zipfile
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
@@ -20,6 +21,8 @@ BASE = "https://cnesed640.github.io/apps/"
 MAX_DOWNLOAD = 50 * 1024 * 1024
 MAX_UNZIP = 100 * 1024 * 1024
 MAX_ENTRIES = 400
+INBOX = "github.com/cnesed640/apps-inbox.git"   # 비공개 우편함 저장소 (직원 Claude가 drop/<코드> 가지로 push)
+CODE_RE = re.compile(r"^[A-Z0-9]{4}-[A-Z0-9]{4}$")
 FIELDS = ("uid", "id", "kind", "slug", "title", "team", "owner", "ext", "desc", "audience", "until", "createdAt")
 
 
@@ -56,6 +59,38 @@ def download(link, dest):
                 raise ValueError("내려받는 파일이 50MB를 넘음")
             f.write(chunk)
     return dest
+
+
+def inbox_url():
+    token = os.environ.get("INBOX_TOKEN", "")
+    if not token:
+        raise ValueError("우편함 열쇠(INBOX_TOKEN)가 설정되지 않음 — 담당자에게 알려 주세요")
+    return f"https://x-access-token:{token}@{INBOX}"
+
+
+def fetch_code(code, work):
+    """우편함의 drop/<코드> 가지에서 파일 하나를 꺼낸다."""
+    code = (code or "").strip().upper()
+    if not CODE_RE.match(code):
+        raise ValueError("전달 코드 형식이 맞지 않음 (예: K7Q2-9XMB)")
+    dest = Path(work) / "inbox"
+    r = subprocess.run(["git", "clone", "-q", "--depth", "1", "--branch", f"drop/{code}", inbox_url(), str(dest)],
+                       capture_output=True, text=True)
+    if r.returncode != 0:
+        raise ValueError("우편함에서 이 전달 코드를 찾지 못함 — 코드를 확인하거나 Claude에게 다시 보내 달라고 하세요")
+    files = [f for f in dest.iterdir() if f.is_file() and not f.name.startswith(".")]
+    if len(files) != 1:
+        raise ValueError("우편함에 파일이 하나가 아님")
+    if files[0].stat().st_size > MAX_DOWNLOAD:
+        raise ValueError("우편함 파일이 50MB를 넘음")
+    return files[0]
+
+
+def drop_branch(code):
+    """처리한 우편함 가지를 지운다(실패해도 게시 결과에는 영향 없음)."""
+    code = (code or "").strip().upper()
+    if CODE_RE.match(code) and os.environ.get("INBOX_TOKEN"):
+        subprocess.run(["git", "push", "-q", inbox_url(), "--delete", f"drop/{code}"], capture_output=True, text=True)
 
 
 def unpack(path, work):
@@ -114,7 +149,10 @@ def main():
         with tempfile.TemporaryDirectory() as work:
             try:
                 if item["kind"] != "remove":
-                    got = download(req.get("link", ""), Path(work) / "download.bin")
+                    if req.get("code"):
+                        got = fetch_code(req["code"], work)
+                    else:
+                        got = download(req.get("link", ""), Path(work) / "download.bin")
                     item["dir"] = str(unpack(got, work))
                 batch = Path(work) / "batch.json"
                 batch.write_text(json.dumps({"base": BASE, "items": [item]}, ensure_ascii=False), encoding="utf-8")
@@ -124,6 +162,8 @@ def main():
                 result.update({k: r[k] for k in ("status", "url", "error") if k in r})
             except Exception as e:
                 result.update(status="error", error=str(e)[:300])
+        if req.get("code") and result.get("status") != "retry":
+            drop_branch(req["code"])
         (REPO / "results" / rf.name).write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
         rf.unlink()
         print(f"{rf.name}: {result.get('status')} {result.get('url') or result.get('error', '')}")
