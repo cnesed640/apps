@@ -22,6 +22,8 @@ MAX_DOWNLOAD = 50 * 1024 * 1024
 MAX_UNZIP = 100 * 1024 * 1024
 MAX_ENTRIES = 400
 INBOX = "github.com/cnesed640/apps-inbox.git"   # 비공개 우편함 저장소 (직원 Claude가 drop/<코드> 가지로 push)
+# actions/checkout이 github.com 전체에 심어 두는 인증 헤더를 우편함 명령에서는 끈다
+NOHDR = ["-c", "http.https://github.com/.extraheader="]
 CODE_RE = re.compile(r"^[A-Z0-9]{4}-[A-Z0-9]{4}$")
 FIELDS = ("uid", "id", "kind", "slug", "title", "team", "owner", "ext", "desc", "audience", "until", "createdAt")
 
@@ -74,7 +76,7 @@ def fetch_code(code, work):
     if not CODE_RE.match(code):
         raise ValueError("전달 코드 형식이 맞지 않음 (예: K7Q2-9XMB)")
     dest = Path(work) / "inbox"
-    r = subprocess.run(["git", "clone", "-q", "--depth", "1", "--branch", f"drop/{code}", inbox_url(), str(dest)],
+    r = subprocess.run(["git", *NOHDR, "clone", "-q", "--depth", "1", "--branch", f"drop/{code}", inbox_url(), str(dest)],
                        capture_output=True, text=True)
     if r.returncode != 0:
         raise ValueError("우편함에서 이 전달 코드를 찾지 못함 — 코드를 확인하거나 Claude에게 다시 보내 달라고 하세요")
@@ -90,7 +92,10 @@ def drop_branch(code):
     """처리한 우편함 가지를 지운다(실패해도 게시 결과에는 영향 없음)."""
     code = (code or "").strip().upper()
     if CODE_RE.match(code) and os.environ.get("INBOX_TOKEN"):
-        subprocess.run(["git", "push", "-q", inbox_url(), "--delete", f"drop/{code}"], capture_output=True, text=True)
+        r = subprocess.run(["git", *NOHDR, "push", "-q", inbox_url(), "--delete", f"drop/{code}"],
+                           capture_output=True, text=True, cwd=tempfile.gettempdir())
+        if r.returncode != 0:
+            print(f"우편함 가지 drop/{code} 삭제 실패: {r.stderr.strip()[:200]}")
 
 
 def unpack(path, work):
