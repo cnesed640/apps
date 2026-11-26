@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>충남 참학력 공동교육과정 안내와 나의 수강 점검 (Copy)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<style>
+/* VOICE  학생·학부모·교사가 함께 보는 친절하고 정확한 안내서
+   IDEA   수강신청 전에 펼쳐 보는 '학생 수강 점검 수첩'
+   PICTURE 첫 화면의 핵심 수치 카드와, 바로 쓰는 개인별 점검표
+   COLOUR 흰 바탕, 학교 파랑 #1f5fbf 주색, 연파랑 면, 주황 #e2572f 경고 강조
+   TYPE   Gothic A1 제목 + IBM Plex Sans KR 본문 / LAYOUT 한 단 본문(최대 1000px), 위쪽 고정 메뉴 */
+:root{color-scheme:light dark;
+ --bg:light-dark(#ffffff,#0f1520);--ink:light-dark(#1b2333,#e6ebf3);--muted:light-dark(#5a6577,#9aa6b8);
+ --line:light-dark(#dbe2ec,#28344a);--panel:light-dark(#eef3fb,#172133);--panel2:light-dark(#f7f9fc,#131c2b);
+ --blue:light-dark(#1f5fbf,#7fb0ff);--blue-ink:light-dark(#ffffff,#0f1520);--blue-soft:light-dark(#dce8fa,#1b2c48);
+ --ok:light-dark(#1f7a4d,#6fd39f);--ok-bg:light-dark(#e3f4ea,#16301f);
+ --warn:light-dark(#b25a00,#f3b25c);--warn-bg:light-dark(#fdf0dc,#352713);
+ --bad:light-dark(#c23b1c,#ff8f73);--bad-bg:light-dark(#fde6e0,#3a1c15);
+ --sans:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;--head:"Gothic A1","IBM Plex Sans KR","Malgun Gothic",sans-serif}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 var(--sans);word-break:keep-all;overflow-x:clip}
+a{color:var(--blue)}
+.wrap{max-width:1000px;margin:0 auto;padding-inline:max(4vw,16px)}
+nav.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav.top .scroll{display:flex;gap:4px;overflow-x:auto;padding:8px max(4vw,16px);max-width:1000px;margin:0 auto;scrollbar-width:thin}
+nav.top a{flex:none;text-decoration:none;color:var(--muted);font-weight:600;font-size:14px;padding:8px 12px;border-radius:8px}
+nav.top a:hover,nav.top a:focus-visible{background:var(--panel);color:var(--ink);outline:none}
+nav.top a.cta{background:var(--blue);color:var(--blue-ink)}
+header.hero{background:var(--blue);color:#fff;padding:clamp(32px,5vw,56px) 0 clamp(28px,4vw,44px)}
+:root[data-theme=dark] header.hero{background:#173f80}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) header.hero{background:#173f80}}
+.hero .tag{display:inline-block;font-size:14px;font-weight:600;background:rgba(255,255,255,.16);padding:4px 12px;border-radius:999px}
+.hero h1{font-family:var(--head);font-weight:800;font-size:clamp(30px,5vw,48px);line-height:1.12;margin:14px 0 10px;text-wrap:balance}
+.hero p{margin:0;max-width:44em;opacity:.92}
+.hero .btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.hero .btns a{display:inline-flex;align-items:center;min-height:44px;padding:8px 18px;border-radius:10px;font-weight:700;text-decoration:none;background:#fff;color:#1f5fbf}
+.hero .btns a.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.6)}
+.stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:28px}
+.stat{background:rgba(255,255,255,.12);border-radius:12px;padding:14px 14px 12px}
+.stat b{display:block;font-family:var(--head);font-size:clamp(24px,3.2vw,34px);line-height:1.1;white-space:nowrap}
+.stat span{font-size:13.5px;opacity:.92;display:block;margin-top:4px}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stat:last-child{grid-column:1/-1}}
+section.band{padding:clamp(36px,5vw,60px) 0;border-bottom:1px solid var(--line)}
+section.band.alt{background:var(--panel2)}
+h2{font-family:var(--head);font-weight:800;font-size:clamp(24px,3vw,32px);line-height:1.2;margin:0 0 6px;text-wrap:balance}
+.lead{color:var(--muted);margin:0 0 22px}
+h3{font-family:var(--head);font-weight:700;font-size:19px;margin:26px 0 10px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media(max-width:760px){.grid3,.grid2{grid-template-columns:minmax(0,1fr)}}
+.card{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.card h4{margin:0 0 6px;font-size:17px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.steps .card.on{border:2px solid var(--blue);background:var(--blue-soft)}
+.steps small{display:block;font-weight:700;color:var(--blue)}
+@media(max-width:760px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+table{border-collapse:collapse;width:100%;font-size:15px;background:var(--bg)}
+th,td{border:1px solid var(--line);padding:9px 10px;vertical-align:top;text-align:left}
+th{background:var(--panel);font-weight:700}
+td.c,th.c{text-align:center}
+.scroll{overflow-x:auto}
+ul.chk{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+ul.chk li{padding:10px 14px 10px 40px;position:relative;background:var(--bg);border:1px solid var(--line);border-radius:10px}
+ul.chk li::before{content:"✓";position:absolute;left:14px;top:10px;color:var(--blue);font-weight:800}
+.note{background:var(--warn-bg);color:var(--ink);border-left:4px solid var(--warn);padding:10px 14px;border-radius:8px;margin:12px 0;font-size:15px}
+.pill{display:inline-block;font-size:12.5px;font-weight:700;padding:2px 8px;border-radius:6px;background:var(--blue-soft);color:var(--blue);white-space:nowrap}
+.qref{font-size:13px;font-weight:700;text-decoration:none;background:var(--panel);padding:1px 7px;border-radius:6px;white-space:nowrap}
+/* 점검표 */
+.checker{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px;align-items:start}
+@media(max-width:860px){.checker{grid-template-columns:minmax(0,1fr)}}
+fieldset{border:1px solid var(--line);border-radius:12px;padding:14px 16px 16px;margin:0 0 14px;background:var(--bg)}
+legend{font-family:var(--head);font-weight:700;font-size:17px;padding:0 6px}
+label{font-size:14.5px;font-weight:600}
+.f{display:grid;gap:4px;margin-bottom:10px}
+.f small{color:var(--muted);font-weight:400;font-size:13px}
+.row2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.row3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media(max-width:520px){.row3{grid-template-columns:minmax(0,1fr)}}
+input[type=text],input[type=number],select{font:inherit;font-size:16px;min-height:44px;width:100%;padding:8px 10px;border:1.5px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+input:focus-visible,select:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--blue-soft);outline-offset:1px;border-color:var(--blue)}
+.cb{display:flex;gap:10px;align-items:flex-start;font-weight:500;padding:6px 0;cursor:pointer}
+.cb input{width:20px;height:20px;margin-top:3px;flex:none;accent-color:var(--blue)}
+.subj{border:1px dashed var(--line);border-radius:10px;padding:12px;margin-bottom:12px;background:var(--panel2)}
+.subj .hd{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}
+.subj .hd b{font-size:15px}
+.subj .auto{font-size:13px;color:var(--muted);margin:2px 0 6px}
+button{font:inherit;font-weight:700;min-height:44px;padding:8px 16px;border-radius:9px;border:1.5px solid var(--blue);background:var(--bg);color:var(--blue);cursor:pointer}
+button.primary{background:var(--blue);color:var(--blue-ink)}
+button.x{min-height:36px;padding:4px 10px;font-size:13px;border-color:var(--line);color:var(--muted)}
+.result{position:sticky;top:72px;display:grid;gap:10px}
+@media(max-width:860px){.result{position:static}}
+.sum{border-radius:12px;padding:14px 16px;background:var(--panel);border:1px solid var(--line)}
+.sum .big{font-family:var(--head);font-weight:800;font-size:22px;line-height:1.25}
+.meter{height:10px;border-radius:6px;background:var(--line);overflow:hidden;margin:8px 0 4px}
+.meter i{display:block;height:100%;background:var(--blue)}
+.ck{border-radius:10px;padding:11px 14px;border:1px solid var(--line);background:var(--bg)}
+.ck .t{display:flex;gap:8px;align-items:baseline;font-weight:700}
+.ck .s{font-size:12.5px;font-weight:800;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.ck p{margin:4px 0 0;font-size:14.5px;color:var(--muted)}
+.ck.ok .s{background:var(--ok-bg);color:var(--ok)}.ck.warn .s{background:var(--warn-bg);color:var(--warn)}.ck.bad .s{background:var(--bad-bg);color:var(--bad)}.ck.na .s{background:var(--panel);color:var(--muted)}
+.ck.bad{border-color:var(--bad)}
+.calc{font-size:13.5px;color:var(--muted);background:var(--panel2);border-radius:8px;padding:6px 10px;margin-top:6px}
+/* 탭 */
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.tabs button{border-color:var(--line);color:var(--muted)}
+.tabs button[aria-selected=true]{background:var(--blue);border-color:var(--blue);color:var(--blue-ink)}
+/* Q&A */
+.qtools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+.qtools input{flex:1 1 260px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.chips button{min-height:38px;padding:4px 12px;font-size:14px;border-color:var(--line);color:var(--muted);border-radius:999px}
+.chips button[aria-pressed=true]{background:var(--blue);border-color:var(--blue);color:var(--blue-ink)}
+details.q{border:1px solid var(--line);border-radius:10px;background:var(--bg);margin-bottom:8px}
+details.q summary{cursor:pointer;padding:12px 14px;font-weight:600;list-style:none;display:flex;gap:10px}
+details.q summary::-webkit-details-marker{display:none}
+details.q summary .n{flex:none;color:var(--blue);font-weight:800;min-width:2.6em}
+details.q .a{padding:0 14px 14px 14px;color:var(--ink);font-size:15px}
+details.q .a p{margin:6px 0 0}
+details.q .a .cat{font-size:12.5px;color:var(--muted)}
+details.q.hl{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft)}
+.copyok{font-size:13px;color:var(--ok);margin-left:6px}
+footer{padding:28px 0 48px;color:var(--muted);font-size:14px}
+@media(max-width:600px){table{font-size:13px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px;border-bottom:1px solid var(--line)}.stack td{display:flow-root;border:0;padding:3px 0;padding-inline-start:7em;text-align:start}.stack td::before{content:attr(data-l);float:inline-start;width:6.5em;margin-inline-start:-7em;font-weight:700;white-space:normal}.stack td:empty{display:none}.row2{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:no-preference){.ck{transition:border-color .2s}}
+</style>
+<script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent||''}}).observe(document,{childList:true,subtree:true})</script>
+</head>
+<body>
+<nav class="top" aria-label="바로 가기"><div class="scroll">
+ <a href="#about">공동교육과정이란</a><a href="#types">3가지 유형</a><a href="#before">신청 전 확인</a><a class="cta" href="#check">나의 점검</a><a href="#study">이수·평가·학생부</a><a href="#credit">학점 관리</a><a href="#manual">역할별 안내</a><a href="#schedule">일정</a><a href="#subjects">개설 과목</a><a href="#qa">Q&amp;A</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+ <span class="tag">2027학년도 · 학생 · 학부모 · 지도교사용</span>
+ <h1>충남 참학력 공동교육과정<br>안내와 나의 수강 점검</h1>
+ <p>우리 학교에 없는 과목을 다른 학교 학생들과 함께 들을 수 있는 정규 교육과정이에요. 신청하기 전에 규칙을 확인하고, 내 신청이 기준에 맞는지 직접 점검해 보세요.</p>
+ <div class="btns"><a href="#check">내 신청 점검하기</a><a class="ghost" href="#qa">자주 하는 질문 88개</a></div>
+ <div class="stats">
+  <div class="stat"><b>2과목</b><span>학기당 최대 수강(공동교육과정+온라인학교)</span></div>
+  <div class="stat"><b>2/3</b><span>출석해야 이수(공통과목은 학업성취율 40%도)</span></div>
+  <div class="stat"><b>2주</b><span>수업 시작 후 수강 포기 가능 기간(순증형)</span></div>
+  <div class="stat"><b>5명·8명</b><span>강좌 개설 최소 인원(가·나군 / 다군·교양, 온라인)</span></div>
+  <div class="stat"><b>192</b><span>졸업 학점(교과 174 + 창체 18)</span></div>
+ </div>
+</div></header>
+
+<section class="band" id="about"><div class="wrap">
+ <h2>공동교육과정은 우리 학교에 없는 과목을 듣는 길이에요</h2>
+ <p class="lead">희망 학생이 적거나 선생님을 구하기 어려워 한 학교에서 열기 어려운 소인수·심화 과목을, 학교끼리·지역에서·온라인으로 함께 여는 정규 교육과정입니다.</p>
+ <h3>충남 고교학점제 4단계 안전망</h3>
+ <div class="steps">
+  <div class="card"><small>1단계</small><h4>학생 선택 중심 학교 교육과정</h4><p>먼저 우리 학교 교육과정에서 선택해요.</p></div>
+  <div class="card on"><small>2단계</small><h4>온배움 충남온라인학교</h4><p>우리 학교에 없는 과목을 온라인학교에서.</p></div>
+  <div class="card on"><small>3단계</small><h4>참학력 공동교육과정</h4><p>학교연합·지역연계·온라인으로.</p></div>
+  <div class="card"><small>4단계</small><h4>꿈키움 학교 밖 교육</h4><p>대학 등 지역 기관과 연계한 교육.</p></div>
+ </div>
+ <div class="grid3" style="margin-top:14px">
+  <div class="card"><h4>성적은 이렇게 남아요</h4><p>성취도·원점수/과목평균·수강자 수 등이 학생부에 기록되고 <b>석차등급은 산출하지 않아요.</b> 모든 과목에 세특이 기재됩니다.</p></div>
+  <div class="card"><h4>정규 내와 정규 외(순증형)</h4><p>정규 내는 학교 시간표 안에서 운영되고, 정규 외(방과 후·야간·주말·방학)는 <b>이수 학점이 늘어나는</b> 순증형이에요.</p></div>
+  <div class="card"><h4>학교 소속은 그대로</h4><p>수업·평가·성적 처리는 과목을 연 <b>거점학교</b>가, 출결 인정·수강 포기 공문은 내 <b>소속 학교(회원학교)</b>가 맡아요.</p></div>
+ </div>
+</div></section>
+
+<section class="band alt" id="types"><div class="wrap">
+ <h2>3가지 유형, 이렇게 달라요</h2>
+ <p class="lead">한 학기에 유형별로 1과목씩, 공동교육과정과 온라인학교를 합쳐 최대 2과목까지 들을 수 있어요.</p>
+ <div class="scroll"><table class="stack">
+  <thead><tr><th>구분</th><th>학교연합</th><th>지역연계</th><th>온라인</th></tr></thead>
+  <tbody>
+   <tr><td><b>주관</b></td><td>거점학교(학교 자율)</td><td>교육지원청(지역별 거점학교)</td><td>도교육청, 거점학교는 충남온라인학교</td></tr>
+   <tr><td><b>대상</b></td><td>거점학교·회원학교 재학생</td><td>지역별 고등학교 재학생<br><span class="pill">2027 신설</span> 인접 지역 강좌도 신청 가능</td><td>도내 고등학교 재학생<br>1학년 2학기 ~ 3학년 1학기</td></tr>
+   <tr><td><b>운영 시기</b></td><td>학기별 학교 자율</td><td>(1학기) 3월~6월 · (2학기) 8월 말~12월<br>지역에 따라 겨울방학 운영</td><td>(1학기) 3월~6월 · (2학기) 8월 말~12월</td></tr>
+   <tr><td><b>운영 시간</b></td><td>일과 중, 방과 후·야간, 주말 등</td><td>방과 후·야간, 주말 (1일 3차시 이내)</td><td>방과 후·야간, 주말 (1일 3차시 이내 권장)</td></tr>
+   <tr><td><b>수업 방법</b></td><td>대면</td><td>대면(거점학교 지정 장소)</td><td>실시간 쌍방향(마주온 온배움터)</td></tr>
+   <tr><td><b>수강 신청</b></td><td>거점·회원학교 중심 접수</td><td>교육지원청별 접수<br>(1학기) 전년 11~12월 · (2학기) 6월</td><td>도내 통합 접수(온마당)<br>(1학기) 전년 11~12월 · (2학기) 6월</td></tr>
+   <tr><td><b>공문 수신</b><br>(포기·출석인정)</td><td>회원학교 → 거점학교</td><td>회원학교 → 거점학교, 교육지원청</td><td>회원학교 → 충남온라인학교, 도교육청</td></tr>
+  </tbody></table></div>
+ <h3>온라인 과목은 가·나·다군으로 나뉘어요</h3>
+ <div class="grid3">
+  <div class="card"><h4>가군</h4><p>진로·진학에 필요한 과목인데 학교 일과 안에 열리지 못한 과목. 예) 물리학, 경제. <b>5명 이상</b>이면 개설, 수요만큼 반이 늘어나요.</p></div>
+  <div class="card"><h4>나군</h4><p>특정 진로 희망 학생에게 유용하고 수요가 많은 과목. 예) 인공지능수학, 고급물리학. <b>5명 이상</b>이면 개설(교양은 8명).</p></div>
+  <div class="card"><h4>다군</h4><p>선생님이 자율적으로 개발·개설하는 특색 과목. <b>8명 이상</b>이면 개설돼요.</p></div>
+ </div>
+</div></section>
+
+<section class="band" id="before"><div class="wrap">
+ <h2>신청 전에 꼭 확인하세요</h2>
+ <p class="lead">아래 다섯 가지 중 하나라도 어긋나면 신청이 취소되거나 이수가 인정되지 않을 수 있어요.</p>
+ <ul class="chk">
+  <li><b>우리 학교 3년 편제표에 있는 과목은 신청할 수 없어요.</b> 내가 선택하지 않았거나 나중 학년에 편제된 과목도 마찬가지예요. 단, 수강신청 시작일 기준으로 폐강이 확정된 과목은 신청할 수 있어요. <a class="qref" href="#q3">Q3</a> <a class="qref" href="#q4">Q4</a> <a class="qref" href="#q5">Q5</a></li>
+  <li><b>이미 들은 과목은 다시 들을 수 없어요.</b> 지역연계 ↔ 온라인처럼 유형이 달라도 중복 이수는 안 돼요. <a class="qref" href="#q6">Q6</a></li>
+  <li><b>공동교육과정과 온라인학교를 합쳐 한 학기에 최대 2과목.</b> 소규모 학교 등 부득이한 경우에만 도교육청 승인으로 3과목 이상 가능해요. 정규 교육과정에서 미이수한 학생은 직전 학기까지 미이수 학점 안에서 추가 수강할 수 있어요. <a class="qref" href="#q7">Q7</a> <a class="qref" href="#q8">Q8</a></li>
+  <li><b>Ⅰ·Ⅱ로 나뉜 과목은 Ⅰ을 먼저 들어야 해요.</b> 공통과목도 그 교과(군)의 선택과목보다 먼저 이수해야 해요. <a class="qref" href="#q9">Q9</a></li>
+  <li><b>국어·수학·영어는 균형 있게.</b> 국·수·영 이수 학점 합계는 81학점을 넘을 수 없고, 교과 이수 학점이 174학점을 넘으면 넘는 학점 중 국·수·영이 50%를 넘을 수 없어요. <a href="#credit">학점 관리 보기</a></li>
+ </ul>
+ <div class="note">신청 순서: ① 우리 학교 편제표 확인 → ② 담임·공동교육과정 담당 선생님과 진로·학업 상담 → ③ 온마당에서 신청하고 손으로 쓴 학업계획서 사진 올리기(온라인) → ④ 선정 결과 확인 → ⑤ 첫 수업 참여. 신청만으로 수강이 확정되지는 않아요. <a class="qref" href="#q10">Q10</a></div>
+</div></section>
+
+<section class="band alt" id="check"><div class="wrap">
+ <h2>나의 공동교육과정 신청, 직접 점검해 보세요</h2>
+ <p class="lead">이번 학기에 신청하려는 과목을 넣으면 과목 수·편제·중복·위계·학년, 학업 관리 이해도, 192학점 대비 순증, 국·수·영 비율을 한 번에 확인해요. 입력한 내용은 이 화면에서만 계산되고 어디에도 저장·전송되지 않아요.</p>
+ <div class="checker">
+  <div>
+   <fieldset><legend>1. 나의 기본 정보</legend>
+    <div class="row2">
+     <div class="f"><label for="grade">수강할 때 학년</label><select id="grade"><option value="1">1학년</option><option value="2" selected>2학년</option><option value="3">3학년</option></select></div>
+     <div class="f"><label for="sem">수강 학기</label><select id="sem"><option value="1" selected>1학기</option><option value="2">2학기</option></select></div>
+    </div>
+    <label class="cb"><input type="checkbox" id="approved"> 우리 학교는 소규모학교 등으로 도교육청 승인을 받아 3과목 이상 수강할 수 있어요</label>
+    <label class="cb"><input type="checkbox" id="makeup"> 나는 정규 교육과정에서 미이수한 과목이 있어 추가 수강을 신청해요</label>
+   </fieldset>
+
+   <fieldset><legend>2. 이번 학기에 신청할 과목</legend>
+    <div id="subjects"></div>
+    <button type="button" id="add">＋ 과목 추가</button>
+    <datalist id="courselist"></datalist>
+   </fieldset>
+
+   <fieldset><legend>3. 학점 정보 <small style="font-weight:400;color:var(--muted)">(학교 편제표를 보고 입력)</small></legend>
+    <div class="row3">
+     <div class="f"><label for="grad">졸업 기준 학점</label><input type="number" id="grad" value="192" min="0" inputmode="numeric"><small>학칙 기준(보통 192)</small></div>
+     <div class="f"><label for="schoolTotal">학교 편제 교과 학점</label><input type="number" id="schoolTotal" value="174" min="0" inputmode="numeric"><small>창체 제외 3년 합계</small></div>
+     <div class="f"><label for="schoolKME">그중 국·수·영 학점</label><input type="number" id="schoolKME" value="" placeholder="예: 72" min="0" inputmode="numeric"><small>내가 듣는 과목 기준</small></div>
+    </div>
+    <div class="row3">
+     <div class="f"><label for="creative">창의적 체험활동</label><input type="number" id="creative" value="18" min="0" inputmode="numeric"><small>보통 18학점</small></div>
+     <div class="f"><label for="prevPlus">이전 학기 순증 학점</label><input type="number" id="prevPlus" value="0" min="0" inputmode="numeric"><small>이미 이수한 정규 외 공동교육과정·온라인학교</small></div>
+     <div class="f"><label for="prevPlusKME">그중 국·수·영</label><input type="number" id="prevPlusKME" value="0" min="0" inputmode="numeric"><small>이전 순증 중 국·수·영</small></div>
+    </div>
+   </fieldset>
+
+   <fieldset><legend>4. 학업 관리, 알고 있나요?</legend>
+    <div id="knows"></div>
+   </fieldset>
+  </div>
+
+  <div class="result" aria-live="polite">
+   <div class="sum">
+    <div id="sumBig" class="big">과목을 넣으면 결과가 보여요</div>
+    <div class="meter" aria-hidden="true"><i id="sumBar" style="width:0%"></i></div>
+    <div id="sumSub" style="font-size:14px;color:var(--muted)"></div>
+   </div>
+   <div id="checks"></div>
+   <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+    <button type="button" class="primary" id="copy">점검 결과 복사</button>
+    <button type="button" id="reset">처음부터</button>
+    <span id="copied" class="copyok"></span>
+   </div>
+   <p style="font-size:13px;color:var(--muted);margin:0">이 점검은 2027학년도 운영 안내서(안) 기준의 자가 점검이에요. 최종 신청 자격은 소속 학교 담당 선생님과 운영 공문으로 확인하세요.</p>
+  </div>
+ </div>
+</div></section>
+
+<section class="band" id="study"><div class="wrap">
+ <h2>이수·평가·학생부: 출석만으로 끝나지 않아요</h2>
+ <p class="lead">공동교육과정도 우리 학교 과목과 똑같이 이수 기준을 넘어야 학점이 되고, 성취도와 세특이 학생부에 남아요.</p>
+ <div class="grid2">
+  <div class="card"><h4>이수 기준</h4><p><b>선택과목</b>: 총 수업 시간의 2/3 이상 출석<br><b>공통과목</b>: 2/3 이상 출석 + 학업성취율 40% 이상</p>
+   <table style="margin-top:10px"><thead><tr><th class="c">학점</th><th class="c">총 차시</th><th class="c">출석해야 할 차시</th></tr></thead>
+   <tbody><tr><td class="c">2</td><td class="c">32</td><td class="c"><b>22</b></td></tr><tr><td class="c">3</td><td class="c">48</td><td class="c"><b>32</b></td></tr><tr><td class="c">4</td><td class="c">64</td><td class="c"><b>43</b></td></tr><tr><td class="c">5</td><td class="c">80</td><td class="c"><b>54</b></td></tr></tbody></table>
+   <p style="margin-top:6px;font-size:13.5px">정규 내 과정에서 1학점당 16+1회로 운영하면 실제 운영 차시의 2/3를 적용해요.</p></div>
+  <div class="card"><h4>기준에 못 미치면: 최소 성취수준 보장지도</h4>
+   <table class="stack"><thead><tr><th>출석률</th><th>학업성취율</th><th>제공되는 기회</th></tr></thead><tbody>
+    <tr><td>미충족</td><td>미충족</td><td>보장지도(보충지도) · 공통과목</td></tr>
+    <tr><td>충족</td><td>미충족</td><td>보장지도(보충지도) · 공통과목</td></tr>
+    <tr><td>미충족</td><td>충족</td><td>추가학습 · 선택·교양 포함</td></tr></tbody></table>
+   <p style="margin-top:8px">추가학습은 1학점당 3시간 이상, 운영 시간의 2/3 이상 참여해야 이수돼요. 끝내 미이수하면 성적란은 ‘·’, 비고란에 <b>‘미이수’</b>가 남아요. <a class="qref" href="#q23">Q23</a></p></div>
+ </div>
+ <div class="grid3" style="margin-top:12px">
+  <div class="card"><h4>평가</h4><p>과목을 연 거점학교의 학업성적관리규정과 확정된 평가계획으로 평가해요. 석차등급이 없어도 성취기준에 따라 평가하니 수행평가에 성실히 참여해야 해요. <a class="qref" href="#q20">Q20</a> <a class="qref" href="#q21">Q21</a></p></div>
+  <div class="card"><h4>학생부</h4><p>성취도(보통교과 5단계, 체육·예술·과학탐구실험 3단계, 교양 P)와 <b>과목별 세부능력 및 특기사항</b>이 모든 과목에 기재돼요. 수업 중 활동이 세특의 근거예요.</p></div>
+  <div class="card"><h4>출결과 수강 포기</h4><p>순증형은 수업 시작 후 2주 안에만 포기할 수 있어요. 그 뒤 빠지면 <b>미인정 결석</b>이 되고 성적이 산출돼요. 학교 행사·정기고사는 소속 학교 공문이 있어야 출석으로 인정돼요. <a class="qref" href="#q12">Q12</a> <a class="qref" href="#q15">Q15</a></p></div>
+ </div>
+</div></section>
+
+<section class="band alt" id="credit"><div class="wrap">
+ <h2>학점 관리: 192학점과 국·수·영 균형</h2>
+ <p class="lead">정규 외(순증형) 공동교육과정은 졸업 학점 위에 학점을 더해요. 늘어난 학점이 한 교과에 몰리지 않도록 기준이 있어요.</p>
+ <div class="grid2">
+  <div class="card"><h4>192학점 = 교과 174 + 창체 18</h4><p>1학점은 50분 수업 16회예요. 정규 외 공동교육과정을 이수하면 학교 편제 학점 위에 <b>순증</b>돼요(예: 3학점 과목 1개 → 192 + 3 = 195학점).</p></div>
+  <div class="card"><h4>국·수·영 학점 제한(2022 개정 교육과정)</h4><p>① 국어·수학·영어 이수 학점 합계는 <b>81학점</b>을 넘을 수 없어요.<br>② 교과 이수 학점이 174학점을 넘으면, <b>넘는 학점 중 국·수·영이 50%</b>를 넘을 수 없어요.<br>예) 순증으로 수학 3과목(9학점)만 들으면 초과분의 100%가 수학이라 기준을 넘어요. 다른 교과도 함께 들어야 해요.</p></div>
+ </div>
+ <div class="note">2015 개정 교육과정의 ‘기초 교과(국·수·영·한국사) 50%’ 기준과 달리, 2027학년도에는 전 학년이 2022 개정 교육과정이라 <b>국·수·영</b> 기준을 적용해요(한국사 미포함). 특목고·특성화고와의 공동교육과정은 예외 규정이 있으니 담당 선생님께 확인하세요.</div>
+</div></section>
+
+<section class="band" id="manual"><div class="wrap">
+ <h2>역할별 안내</h2>
+ <p class="lead">학생·학부모·선생님이 각자 무엇을 하면 되는지 정리했어요.</p>
+ <div class="tabs" role="tablist" id="mtabs"></div>
+ <div id="mpanel" role="tabpanel"></div>
+</div></section>
+
+<section class="band alt" id="schedule"><div class="wrap">
+ <h2>2027학년도 일정</h2>
+ <p class="lead">정확한 날짜는 학기별 운영 공문과 교육지원청 안내를 따라요.</p>
+ <div class="scroll"><table class="stack">
+  <thead><tr><th>구분</th><th>1학기(2027. 3.~6.)</th><th>2학기(2027. 8. 말~12.)</th></tr></thead>
+  <tbody>
+   <tr><td><b>온라인 수강 신청</b></td><td>2026. 12. 1.(화) 09:00 ~ 12. 10.(목) 23:00, 온마당<br>선정 결과 안내 ~12. 23.(수) · 수업 2027. 3. 8.(월)~6. 20.(일)</td><td>2027. 6월(예정)</td></tr>
+   <tr><td><b>지역연계 수강 신청</b></td><td>2026. 11. 18.~12. 4. 교육지원청별 진행<br>1학기 운영 2027. 3. 8.(월)~7. 4.(일)</td><td>2027. 6월(교육지원청별 안내)</td></tr>
+   <tr><td><b>겨울방학 지역연계</b></td><td colspan="2">2027. 1. 4.(월)~2. 7.(일), 운영 지역에 한함(예산·태안 등)</td></tr>
+   <tr><td><b>개설 확정·교과서</b></td><td>2026. 12월~2027. 3월</td><td>2027. 6월~8월</td></tr>
+   <tr><td><b>결과 통보</b></td><td>2027. 7월 이수 여부 심의·나이스 전송</td><td>2027. 12월</td></tr>
+  </tbody></table></div>
+ <p style="margin-top:10px"><a href="https://onmadang.or.kr/enroll/">온마당 수강신청 바로 가기</a> <span style="color:var(--muted);font-size:14px">(https://onmadang.or.kr/enroll/)</span></p>
+</div></section>
+
+<section class="band" id="subjects"><div class="wrap">
+ <h2>2027 온라인 공동교육과정 지원(개설 예정) 과목</h2>
+ <p class="lead">학년·학기는 그 과목을 처음 신청할 수 있는 시기예요. 괄호 안은 학점이에요. 실제 개설 과목은 학기별 강좌 목록을 확인하세요.</p>
+ <div class="qtools"><input type="text" id="cq" placeholder="과목 찾기 (예: 고급, 영어, 인공지능)" aria-label="과목 찾기"></div>
+ <div class="scroll"><table id="ctable" class="stack"><thead><tr><th>교과(군)</th><th>1학년</th><th>2학년 1학기</th><th>2학년 2학기</th><th>3학년</th></tr></thead><tbody></tbody></table></div>
+</div></section>
+
+<section class="band alt" id="qa"><div class="wrap">
+ <h2>자주 하는 질문</h2>
+ <p class="lead">2027 운영 안내서의 질문 88개를 찾고 펼쳐 볼 수 있어요.</p>
+ <div class="qtools"><input type="text" id="qq" placeholder="질문·답변 검색 (예: 포기, 출석인정, 세특)" aria-label="질문 검색"><button type="button" id="qall">모두 펼치기</button></div>
+ <div class="chips" id="qchips"></div>
+ <div id="qcount" style="font-size:14px;color:var(--muted);margin-bottom:8px"></div>
+ <div id="qlist"></div>
+</div></section>
+
+<footer><div class="wrap">
+ 기준 자료: 2027학년도 참학력 공동교육과정 운영 안내서(안, 2026. 10. 31.), 2027 홍보 리플렛 원고(안). 안내서와 해당 학기 운영 공문이 다르면 운영 공문을 따릅니다.<br>
+ 문의: 소속 학교 공동교육과정 담당 선생님 · 지역연계는 각 교육지원청 · 온라인은 충남온라인학교, 충청남도교육청 중등교육과
+</div></footer>
+
+<script>
+{
+const QA=[{"n": 1, "c": "공통 사항", "q": "공동교육과정 유형별 주관기관과 거점학교는 어떻게 다른가요?", "a": ["학교연합 공동교육과정은 학교가 주관하고, 지역연계 공동교육과정은 해당 지역 교육지원청이 담당하고 지역별 거점학교가 있습니다. 온라인 공동교육과정은 충남교육청이 주관하며, 충남온라인학교가 통합 거점학교 역할을 합니다. 과목 개설·평가·성적 처리 등은 해당 유형의 거점학교에서 담당합니다."]}, {"n": 2, "c": "공통 사항", "q": "공동교육과정 수강신청 전에는 무엇을 확인해야 하나요?", "a": ["학생에게 적용되는 교육과정, 소속교의 3년간 교육과정 편제표, 동일 과목의 이수 여부, 과목의 위계, 수업 일정과 평가계획을 확인해야 합니다. 학생이 수업과 평가에 지속적으로 참여할 수 있도록 소속교에서 진로·학업 상담을 거쳐 신청하도록 안내합니다."]}, {"n": 3, "c": "공통 사항", "q": "소속 학교 교육과정에 편제된 과목도 공동교육과정으로 신청할 수 있나요?", "a": ["소속 학교의 해당 입학 연도 3년간 교육과정에 편제된 과목은 원칙적으로 신청할 수 없습니다. 현재 학기에 개설되지 않았더라도 이후 학년에 편제되어 있다면 신청 대상에 해당하지 않습니다."]}, {"n": 4, "c": "공통 사항", "q": "학교 선택과목으로 편제되어 있지만 학생이 선택하지 않은 과목도 신청할 수 없나요?", "a": ["학생이 선택하지 않았더라도 소속교 교육과정에 편제되어 있는 과목이면 원칙적으로 신청할 수 없습니다. 개인의 과목 선택이나 시간표 사정만으로 학교 미개설 과목에 해당하는 것은 아닙니다."]}, {"n": 5, "c": "공통 사항", "q": "소속교에 편제되어 있었으나 폐강된 과목은 신청할 수 있나요?", "a": ["공동교육과정 수강신청 시작일을 기준으로 소속교에서 폐강이 확정된 과목은 신청할 수 있습니다. 회원학교는 폐강 여부를 확인할 수 있는 내부결재 등 근거를 갖추고, 필요한 경우 주관기관에 확인 자료를 제출합니다."]}, {"n": 6, "c": "공통 사항", "q": "이미 이수한 과목을 다른 유형의 공동교육과정으로 다시 수강할 수 있나요?", "a": ["동일 과목의 중복 이수는 원칙적으로 불가합니다. 학교연합·지역연계·온라인 등 운영 유형이 달라져도 동일 과목을 이미 이수했다면 다시 신청할 수 없습니다. 과목명이 유사하여 동일 과목 여부가 불분명한 경우에는 소속교와 거점학교에서 확인합니다."]}, {"n": 7, "c": "공통 사항", "q": "공동교육과정은 한 학기에 몇 과목까지 수강할 수 있나요?", "a": ["공동교육과정은 학기당 최대 2과목까지 수강할 수 있습니다. 소규모학교 등 부득이한 경우에는 도교육청의 승인을 통해 3과목 이상 수강할 수 있습니다. 구체적인 신청 방법은 해당 학기 운영 공문을 확인합니다."]}, {"n": 8, "c": "공통 사항", "q": "지역연계 공동교육과정과 온라인 공동교육과정을 함께 수강할 수 있나요?", "a": ["지역연계 공동교육과정 1과목과 온라인 공동교육과정 1과목을 수강할 수 있습니다. 수업 일정이 겹치지 않는지 확인하고, 해당 학기 수강신청 절차에 따라 신청합니다."]}, {"n": 9, "c": "공통 사항", "q": "선이수 과목을 이수하지 않은 학생도 심화 과목을 신청할 수 있나요?", "a": ["공통과목과 선택과목의 이수 순서, 위계가 있는 과목의 선이수 여부를 확인해야 합니다. 예외 적용이나 과목 간 위계 판단이 필요한 경우에는 소속교가 거점학교 및 담당 교육청과 협의합니다."]}, {"n": 10, "c": "공통 사항", "q": "수강신청을 하면 모두 수강할 수 있나요?", "a": ["신청만으로 수강이 확정되는 것은 아닙니다. 신청 자격 확인, 과목 개설 여부, 모집 인원 및 선정 절차 등을 거쳐 최종 수강 대상자를 확정합니다. 학생과 회원학교는 최종 선정 결과를 확인해야 합니다."]}, {"n": 11, "c": "공통 사항", "q": "수강 확정 후 학생 개인의 사정으로 분반이나 수업 요일을 변경할 수 있나요?", "a": ["학생 개인의 분반 변경과 강좌 전체의 수업 일정 변경은 구분됩니다.  개인의 희망만으로 변경이 가능한 것은 아니므로 해당 학기 운영 안내를 확인하고, 부득이한 사유가 있으면 거점학교 및 담당 교육청과 협의합니다."]}, {"n": 12, "c": "공통 사항", "q": "수강 포기는 언제까지 가능한가요?", "a": ["수업 시작일로부터 2주 이내에 수강 포기가 가능합니다. 학생은 소속교 업무담당자에게 포기 의사를 알리고 수강포기원을 제출해야 하며, 회원학교는 정해진 절차에 따라 공문을 발송합니다. 구체적인 포기 마감일과 서류 제출 기한은 해당 학기 운영 공문을 확인합니다."]}, {"n": 13, "c": "공통 사항", "q": "학생이 수업교사에게 포기한다고 말하면 수강 포기 처리가 끝나나요?", "a": ["아닙니다. 학생은 소속교 업무담당교사에게 수강 포기 의사를 알리고 수강포기원(학생 서명, 보호자 서명 기재)을 제출해야 합니다. 회원학교는 정해진 수신처에 공문을 발송하고, 거점학교는 이를 확인하여 수강정보를 처리합니다."]}, {"n": 14, "c": "공통 사항", "q": "기간 안에 포기 의사를 밝혔으나 서명이나 학교 결재 때문에 공문 제출이 늦어지면 어떻게 하나요?", "a": ["회원학교는 기간 내 포기 의사가 확인되었음을 거점학교에 신속히 알리고, 수강포기원과 공문을 제출해야 합니다. 접수 가능 여부와 처리 방법은 해당 학기 제출 일정에 따라 거점학교 및 담당 교육청과 협의합니다. 공문 제출이 늦어진다는 이유로 학생이나 수업교사가 임의로 수강 종료를 판단해서는 안 됩니다."]}, {"n": 15, "c": "공통 사항", "q": "수강 포기 기간이 지난 후 수업에 참여하지 않으면 수강 취소가 되나요?", "a": ["수업에 참여하지 않는 것만으로 수강이 취소되지는 않습니다. 수강 확정 학생으로서 평가 및 이수 판단 대상에 포함되며, 이수 기준에 미도달하면 보충지도 또는 추가학습 등의 절차에 따라 최종 이수 여부를 처리합니다."]}, {"n": 16, "c": "공통 사항", "q": "수강 포기와 미이수는 어떻게 다른가요?", "a": ["수강 포기는 정해진 기간과 절차에 따라 수강을 취소하는 것입니다. 미이수는 수강 확정 후 과목 이수 기준을 충족하지 못하고, 보충지도 또는 추가학습 등 관련 절차를 거친 결과 학점을 취득하지 못한 경우입니다."]}, {"n": 17, "c": "공통 사항", "q": "수강을 포기하면 다음 학기 공동교육과정 신청이 제한되나요?", "a": ["수강 포기 자체를 사유로 다음 학기 수강신청을 제한하지 않습니다. 다만 다음 학기에도 신청 자격, 소속교 편제, 중복 이수 여부 및 선정 기준 등을 충족해야 합니다."]}, {"n": 18, "c": "공통 사항", "q": "수강 중 다른 학교나 다른 시도로 전학하면 어떻게 하나요?", "a": ["수강 학생이 타교로 전출입하는 경우, 거점학교에 학적변동에 따른 수강 정보 이전 공문을 보내고, 원칙적으로 수강을 이어갑니다. 다만 전입교에 해당 과목이 편제되어 있는 경우 등 검토가 필요한 상황에서는 전출교·전입교·거점학교 및 필요한 경우 담당 교육청이 협의하여 처리합니다. 회원학교는 전학 예정 사실을 거점학교에 미리 알립니다."]}, {"n": 19, "c": "공통 사항", "q": "휴학·자퇴 또는 건강상 사유로 수강을 계속하기 어려우면 어떻게 하나요?", "a": ["일반적인 수강 포기와 학적변동 등에 따른 처리는 구분해야 합니다. 회원학교는 학생의 상황과 관련 증빙, 학적변동일 등을 확인하여 거점학교에 알리고 처리 방법을 협의합니다. 건강상 사유가 있다는 이유만으로 수강 취소나 중도해제가 자동으로 인정되는 것은 아닙니다."]}, {"n": 20, "c": "공통 사항", "q": "공동교육과정의 평가 기준은 학생 소속교 규정을 따르나요?", "a": ["해당 과목을 개설한 거점학교의 학업성적관리규정과 심의·확정된 과목별 평가계획에 따라 평가합니다. 학생 소속교나 수업교사 소속교의 평가 기준을 임의로 적용하지 않습니다."]}, {"n": 21, "c": "공통 사항", "q": "공동교육과정은 석차등급을 산출하지 않으므로 평가 부담이 적은 과목인가요?", "a": ["석차등급을 산출하지 않더라도 교육과정의 성취기준과 성취수준에 따라 평가합니다. 학생은 안내된 수업과 평가에 성실히 참여해야 하며, 출석만으로 높은 성취도가 부여되는 것은 아닙니다."]}, {"n": 22, "c": "공통 사항", "q": "과목 이수 기준은 무엇인가요?", "a": ["공통과목은 학업성취율 40% 이상과 총 수업시간의 3분의 2 이상 출석을 모두 충족해야 합니다. 선택과목은 총 수업시간의 3분의 2 이상 출석을 충족해야 합니다. 세부 적용은 해당 학년도 운영계획과 관련 지침을 따릅니다."]}, {"n": 23, "c": "공통 사항", "q": "이수 기준에 미도달하면 바로 미이수로 확정되나요?", "a": ["바로 확정되는 것은 아닙니다. 미도달 사유에 따라 최소 성취수준 보장지도 또는 이에 준하는 추가학습 등 학점 취득 기회를 제공하고, 그 결과에 따라 최종 이수 여부를 처리합니다. 세부 사항은 거점학교의 최소 성취수준 보장지도 운영계획을 따릅니다."]}, {"n": 24, "c": "공동교육과정 업무담당자", "q": "온라인 공동교육과정 수업을 맡은 교사의 소속교도 거점학교 업무를 해야 하나요?", "a": ["온라인 공동교육과정의 거점학교 업무는 충남온라인학교에서 담당합니다. 수업교사 소속교가 온라인 공동교육과정 과목을 별도로 편제하거나 평가계획을 중복 심의하는 것은 아닙니다. 다만 교사 권한, 운영비 집행 등 소속교의 협조가 필요한 업무는 관련 안내에 따라 처리합니다."]}, {"n": 25, "c": "공동교육과정 업무담당자", "q": "회원학교 업무담당자는 어떤 업무를 해야 하나요?", "a": ["수강신청 안내와 신청 자격 확인, 학생의 교육과정 이수 지도, 최종 수강생 정보 확인, 수강 포기 및 학적변동 안내, 출석인정 요청, 나이스 확인요청 처리, 성적·학생부 자료 도착 및 반영 여부 확인 등을 담당합니다."]}, {"n": 26, "c": "공동교육과정 업무담당자", "q": "서로 다른 학년의 학생이 같은 강좌를 수강하면 나이스에는 어떻게 편제하나요?", "a": ["서로 다른 학년의 학생이 함께 수강하는 경우 수강 학생 중 상위 학년을 기준으로 과목을 편제합니다. 예를 들어 1·2학년 학생이 함께 수강하면 2학년에 편제합니다. 과목 편제 학년과 학생의 실제 소속 학년은 구분하며, 학생의 원적교 학적정보는 정확하게 등록합니다."]}, {"n": 27, "c": "공동교육과정 업무담당자", "q": "한 거점학교에서 같은 과목을 여러 분반으로 운영하면 평가계획도 각각 수립하나요?", "a": ["같은 학기에 개설하는 동일 과목은 동일 학년에 편제하고, 담당 교사 간 협의를 거쳐 동일한 평가계획을 수립합니다. 다른 유형의 공동교육과정으로 개설하는 경우도 포함하여 편성·평가 방법을 확인해야 합니다."]}, {"n": 28, "c": "공동교육과정 업무담당자", "q": "외부 강사가 수업하는 경우 협력교사가 반드시 필요한가요?", "a": ["중등교원 자격증을 소지하지 않은 강사가 수업하는 경우 협력교사를 지정하여 코티칭으로 운영해야 합니다. 협력교사는 매시간 수업에 참여하고 평가계획 수립, 시험관리, 기록 및 나이스 등 행정업무를 지원합니다. 동일 시간대 여러 과목의 협력교사로 중복 배정할 수 없습니다."]}, {"n": 29, "c": "공동교육과정 업무담당자", "q": "최종 수강생 명단은 이름만 확인하면 되나요?", "a": ["이름뿐 아니라 학교·학년·반·번호까지 실제 수강 학생과 일치하는지 확인해야 합니다. 동명이인, 학번 오기, 수강 포기 미반영 등이 있으면 성적과 학생부 자료가 잘못 처리될 수 있으므로 학적반영 전에 거점학교에 수정 요청합니다."]}, {"n": 30, "c": "공동교육과정 업무담당자", "q": "나이스에서 학생 확인요청을 결재받으면 처리가 끝나나요?", "a": ["결재 완료만으로는 끝나지 않습니다. 회원학교는 ① 학생의 학적정보와 수강정보 확인 → ② 학생 선택 후 [승인요청] 및 결재 완료 → ③ 결재 완료 학생을 다시 선택하여 [요청확인] 클릭 → ④ 상태가 ‘확인요청완료’인지 확인하는 순서로 처리합니다. ‘상신완결’은 결재만 완료된 상태이므로 반드시 [요청확인]까지 눌러야 거점학교에서 다음 절차를 진행할 수 있습니다."]}, {"n": 31, "c": "공동교육과정 업무담당자", "q": "공동교육과정 학생 확인요청이 보이지 않으면 어떻게 하나요?", "a": ["회원학교의 공동교육과정 업무 권한과 학년도·조회 기간·개설학교 등 조회 조건을 확인합니다. 이후 거점학교에서 해당 학생의 확인요청을 발송했는지 확인합니다. 최종 선정 여부나 수강 포기 반영 여부가 불분명한 경우에는 거점학교에 문의하며, 임의로 중복 등록하지 않습니다."]}, {"n": 32, "c": "공동교육과정 업무담당자", "q": "거점학교에서 재확인요청을 보내면 다시 결재받아야 하나요?", "a": ["이미 확인을 완료한 학생의 정보를 거점학교가 수정하여 재확인요청한 경우, 회원학교는 수정 내용을 확인하고 추가 승인요청 없이 [요청확인]을 처리합니다. 최초 확인요청과 재확인요청의 절차를 구분해야 합니다."]}, {"n": 33, "c": "공동교육과정 업무담당자", "q": "거점학교에서 학생정보를 수정했는데 다음 업무를 진행할 수 없으면 어떻게 하나요?", "a": ["수정 내용을 저장한 후 [재확인요청]까지 처리했는지, 회원학교에서 수정 내용을 확인하고 [요청확인]을 완료했는지 점검합니다. 회원학교의 확인이 끝나지 않았다면 해당 학교에 처리를 요청합니다."]}, {"n": 34, "c": "공동교육과정 업무담당자", "q": "나이스에 수강생을 등록하면 과목 수강생 편성도 완료되나요?", "a": ["아닙니다. 타교수강생 등록과 확인요청·학적반영 절차, 개설 과목의 수강생 편성은 구분됩니다. 거점학교는 학생 등록 이후 해당 과목과 분반에 학생이 정확하게 편성되었는지 확인해야 합니다."]}, {"n": 35, "c": "공동교육과정 업무담당자", "q": "과목을 개설했는데 수업교사가 담당 과목이나 학생을 조회하지 못하면 무엇을 확인하나요?", "a": ["거점학교는 과목 개설 여부뿐 아니라 교과담당교사 배정, 강의실·분반 설정, 수강생 편성 및 교사 권한을 확인합니다. 수업교사도 접속 기관과 학년도·학기 등 조회 조건이 맞는지 확인해야 합니다."]}, {"n": 36, "c": "공동교육과정 업무담당자", "q": "수강 포기 학생을 타교수강생 명단에서 바로 삭제해도 되나요?", "a": ["수강포기원 공문을 확인한 후 학생의 나이스 처리 단계에 맞게 취소·삭제해야 합니다. 이미 확인요청이나 학적반영이 완료된 경우에는 관련 절차를 먼저 확인합니다. 수강 확정 후 이수 기준에 미도달한 학생을 수강 포기 학생처럼 삭제해서는 안 됩니다."]}, {"n": 37, "c": "공동교육과정 업무담당자", "q": "성적 자료를 전송하려는데 회원학교의 성적산출 기준명이 없다는 오류가 나타나면 어떻게 하나요?", "a": ["회원학교에 학기말 성적산출 기준명 등록 여부를 확인하도록 요청합니다. 회원학교에서 필요한 등록을 완료한 후 거점학교가 다시 전송합니다."]}, {"n": 38, "c": "공동교육과정 업무담당자", "q": "세특만 수정했는데 성적 전체를 다시 전송해야 하나요?", "a": ["이미 전송한 세특만 수정한 경우에는 ‘세특’ 항목을 선택하여 재전송할 수 있습니다. ‘성적’을 전송하면 성적과 세특이 함께 전송되므로 수정 내용에 맞는 전송 항목을 선택합니다."]}, {"n": 39, "c": "공동교육과정 업무담당자", "q": "성적과 세특을 전송하기 전 거점학교에서는 무엇을 확인해야 하나요?", "a": ["최종 수강생 명단, 성적 산출 결과, 세특 입력 내용 및 필요한 이수 처리의 완료 여부를 확인합니다. 이후 자료전송 화면에서 학생별 마감과 승인 절차를 거쳐 전송하고, 전송 상태까지 확인합니다."]}, {"n": 40, "c": "공동교육과정 업무담당자", "q": "수강 포기 공문은 어디로 보내나요?", "a": ["학교연합은 거점학교, 지역연계는 거점학교와 해당 교육지원청, 온라인은 충남온라인학교와 충남교육청 중등교육과로 발송합니다. 별도 운영 공문에 제출 방법이 안내된 경우에는 해당 안내도 함께 확인합니다."]}, {"n": 41, "c": "공동교육과정 업무담당자", "q": "수강 포기 학생을 수업 명단에서만 빼면 되나요?", "a": ["수업 명단에서 제외하는 것만으로는 처리가 완료되지 않습니다. 거점학교는 공문을 근거로 나이스 등록·학적반영 상태에 맞는 취소 또는 삭제 절차를 처리해야 합니다. 수강 확정 후 이수 기준에 미도달한 학생을 수강 포기 학생과 동일하게 삭제해서는 안 됩니다."]}, {"n": 42, "c": "공동교육과정 업무담당자", "q": "회원학교에서 출석인정결석으로 처리하면 공동교육과정에서도 자동으로 인정되나요?", "a": ["자동으로 인정되는 것은 아닙니다. 공동교육과정 운영 시간과 출석인정 사유, 거점학교의 관련 규정을 확인해야 합니다. 회원학교는 정해진 절차에 따라 요청하고, 판단이 필요한 사항은 거점학교 및 담당 교육청과 협의합니다."]}, {"n": 43, "c": "공동교육과정 업무담당자", "q": "학교 행사에 참여하면 모두 공동교육과정 출석인정결석이 되나요?", "a": ["학교 또는 해당 학년 전체 학생을 대상으로 하는 정규 학교교육과정의 행사인지, 공동교육과정 수업 시간과 겹치는지 등을 확인해야 합니다. 학생회·동아리·봉사활동 등 일부 학생의 활동을 전체 행사와 동일하게 판단하지 않습니다. 세부 적용은 운영 유형별 기준을 따릅니다."]}, {"n": 44, "c": "공동교육과정 업무담당자", "q": "온라인 공동교육과정에서는 어떤 학교 일정이 출석인정 대상이 되나요?", "a": ["정기고사, 수업 시간과 겹치는 학년 전체 현장체험학습·수학여행, 야간까지 진행되는 학교 축제 등을 해당 운영 기준에 따라 인정합니다. 현장체험학습은 학교 복귀 시간 등 실제 운영 시간을 확인해야 합니다. 이외 사유는 충남온라인학교와 충남교육청에 협의합니다."]}, {"n": 45, "c": "공동교육과정 업무담당자", "q": "시험 준비일이나 시험 전날도 출석인정결석이 되나요?", "a": ["시험 준비를 위한 개인 학습일이나 시험 전날이라는 이유만으로 인정되지는 않습니다. 학교의 실제 정기고사 일정과 해당 학년도 출석인정 기준을 확인하여 처리합니다."]}, {"n": 46, "c": "공동교육과정 업무담당자", "q": "재량휴업일이나 개교기념일이면 공동교육과정도 쉬나요?", "a": ["회원학교가 쉬는 날이라고 공동교육과정이 자동으로 휴강되는 것은 아닙니다. 공동교육과정 수업계획에 따라 운영하며, 특히 정규 외 온라인 공동교육과정에서는 회원학교의 휴업일 자체를 출석인정 사유로 보지 않습니다."]}, {"n": 47, "c": "공동교육과정 업무담당자", "q": "질병이나 법정감염병으로 정규 외 온라인 공동교육과정에 결석하면 출석인정결석으로 처리하나요?", "a": ["질병이나 법정감염병으로 인한 결석은 정규 외 온라인 공동교육과정의 출석인정결석으로 처리하지 않습니다. 학생 소속교에서 출석인정결석으로 처리하더라도 동일하게 적용되는 것은 아닙니다. 이 답변은 정규 외 온라인 공동교육과정에 적용합니다."]}, {"n": 48, "c": "공동교육과정 업무담당자", "q": "출석인정 요청 공문은 어디로 보내며 무엇을 적어야 하나요?", "a": ["학교연합은 거점학교, 지역연계는 거점학교와 해당 교육지원청, 온라인은 충남온라인학교와 충남교육청 중등교육과로 발송합니다. 학생정보, 수강 과목과 분반, 사유, 해당 일자 및 행사 시작·종료 시간 등을 명확히 작성합니다. 증빙서류는 관련 지침에 따라 보관합니다."]}, {"n": 49, "c": "공동교육과정 업무담당자", "q": "정기고사·수학여행마다 출석인정 요청 공문을 다시 보내야 하나요?", "a": ["온라인 공동교육과정은 학기 초 제출한 학사일정과 출석인정 요청 자료로 정기고사·수학여행 등의 요청을 갈음할 수 있습니다. 지역연계·학교연합은 해당 거점학교 및 교육지원청의 제출 안내를 따릅니다. 온라인의 통합 처리 방식을 다른 유형에 그대로 적용하지 않습니다."]}, {"n": 50, "c": "공동교육과정 업무담당자", "q": "제출한 학사일정이 변경되거나 출석인정 대상 일정이 누락되면 어떻게 하나요?", "a": ["회원학교는 거점학교에 변경·누락 사실을 신속히 알려 확인받아야 합니다. 온라인 공동교육과정의 기존 제출 일정 변경은 담당자 확인을 통해 반영할 수 있으며, 새로운 사유의 요청이나 추가 증빙이 필요한 경우에는 공문 제출 등 별도 안내를 따릅니다."]}, {"n": 51, "c": "공동교육과정 업무담당자", "q": "최소 성취수준 보장지도 운영계획은 어느 학교에서 수립하나요?", "a": ["거점학교에서 공동교육과정 과목을 포함하여 운영계획을 수립합니다. 방과 후나 방학 중 운영될 수 있으므로 학교운영위원회 심의 등 필요한 절차를 거쳐 준비합니다. 세부 사항은 해당 학년도 충청남도 최소 성취수준 보장지도 운영계획을 참고하여 거점학교 운영계획에 반영합니다."]}, {"n": 52, "c": "공동교육과정 업무담당자", "q": "수업교사에게 보충지도·추가학습 대상 학생을 보고받으면 어떻게 하나요?", "a": ["거점학교는 출석부와 평가 결과 등을 확인하고 학생 소속교에 대상 학생과 지도 내용을 공문으로 안내합니다. 이후 수업교사와 함께 보충지도 또는 추가학습을 운영하며, 회원학교는 학생의 참여를 독려하고 필요한 사항에 협조합니다."]}, {"n": 53, "c": "공동교육과정 업무담당자", "q": "거점학교에서 성적을 전송하면 학생부에도 자동으로 반영되나요?", "a": ["자료 전송과 학생부 반영은 별도 절차입니다. 회원학교는 자료 도착 여부와 내용을 확인하고, 담당 교사가 학생부 자료 반영을 처리해야 합니다. 반영 후에도 과목·학점·성적·세부능력 및 특기사항 등이 정확한지 확인합니다."]}, {"n": 54, "c": "공동교육과정 업무담당자", "q": "수행평가 자료가 도착했는데 학생부에 최종 성적이 보이지 않으면 어떻게 하나요?", "a": ["도착한 자료가 수행평가 자료인지 학기말 최종 성적 자료인지 확인해야 합니다. 자료 종류와 거점학교의 최종 전송 일정을 확인하고, 최종 성적 자료가 도착한 후 학생부 반영 여부를 점검합니다."]}, {"n": 55, "c": "공동교육과정 업무담당자", "q": "전송받은 성적이나 세특에 오류가 있으면 회원학교에서 직접 고치나요?", "a": ["먼저 수업교사 및 거점학교에 확인·수정을 요청합니다. 거점학교에서 수정 자료를 재전송하면 회원학교가 다시 학생부에 반영합니다. 회원학교에서 전송 자료와 다르게 임의 수정하지 않습니다."]}, {"n": 56, "c": "공동교육과정 업무담당자", "q": "한 학생의 점수가 수정되면 다른 학생의 자료도 다시 확인해야 하나요?", "a": ["동일 과목의 성적을 재산출하면 과목평균이나 성취도별 분포비율 등 다른 학생의 자료에도 영향이 있을 수 있습니다. 거점학교는 재산출 결과에 따라 재전송 범위를 확인하여 안내하고, 회원학교는 안내받은 자료를 다시 반영합니다."]}, {"n": 57, "c": "공동교육과정 업무담당자", "q": "회원학교의 성적이 마감된 후에도 공동교육과정 성적·세특을 수정하여 전송할 수 있나요?", "a": ["회원학교에서 성적산출전체마감을 했더라도 거점학교는 수정한 성적과 세특을 전송할 수 있습니다. 회원학교의 성적 마감만을 이유로 전송이 제한되는 것은 아닙니다. 다만 회원학교의 학교생활기록부가 마감된 경우에는 자료전송이 불가능하므로 학생부 마감을 해제한 후 전송받아야 합니다. 자료가 도착하면 회원학교는 수정 내용을 확인하고 학생부에 다시 반영해야 합니다."]}, {"n": 58, "c": "공동교육과정 업무담당자", "q": "수업 운영비는 반드시 신청해야 하나요?", "a": ["반드시 신청해야 하는 것은 아닙니다. 수업 운영에 필요한 경우 사용계획에 따라 필요한 금액을 신청합니다. 신청하여 교부받은 예산은 승인된 사업 목적과 집행 기준에 맞게 사용하고 정산해야 합니다. 사용하지 못한 잔액이나 집행계획 변경 사항은 해당 학년도 예산 안내에 따라 처리합니다."]}, {"n": 59, "c": "공동교육과정 업무담당자", "q": "교과서 미배송·오배송이나 수강 포기 후 남은 교과서는 어떻게 처리하나요?", "a": ["학생 소속교와 수업교사는 해당 과목의 교과서 선정·배부 여부를 먼저 확인하고, 거점학교 또는 교과서 배부 담당기관에 문의합니다. 남은 교과서의 보관·반납 방법은 해당 학기 안내를 따릅니다."]}, {"n": 60, "c": "수업교사", "q": "수업 시작 전에 어떤 사항을 준비하고 안내해야 하나요?", "a": ["수업계획서와 평가계획을 준비하고 수강생 명단, 교재, 수업 장소 또는 온라인 수업 환경을 확인합니다. 학생에게 수업 일정, 평가 방법, 출결 및 이수 기준, 수강 포기 절차와 연락 방법을 안내합니다."]}, {"n": 61, "c": "수업교사", "q": "수업계획서와 평가계획은 누가 작성하고 어디에 제출하나요?", "a": ["수업교사가 작성하여 거점학교에 제출합니다. 동일 과목을 여러 분반으로 운영하는 경우 담당 교사들이 협의하여 평가계획을 수립합니다. 학업성적관리위원회 안건 제출은 거점학교 공동교육과정 업무담당자가 담당합니다."]}, {"n": 62, "c": "수업교사", "q": "제출한 평가계획과 거점학교에서 확정한 최종본이 다르면 어느 것을 사용하나요?", "a": ["거점학교 학업성적관리위원회 심의를 거쳐 확정된 최종본을 확인하여 적용합니다. 평가 내용에 확인이 필요한 차이가 있으면 평가 전에 거점학교에 문의합니다. 학생에게도 확정된 평가 내용을 안내해야 합니다."]}, {"n": 63, "c": "수업교사", "q": "평가계획은 언제 학생에게 안내해야 하나요?", "a": ["학생이 수업과 평가 내용을 이해하고 수강 여부를 판단할 수 있도록 수강 포기 가능 기간 내에 충분히 안내해야 합니다. 이후 변경이 필요한 경우에는 거점학교의 관련 절차를 거쳐 학생에게 안내합니다."]}, {"n": 64, "c": "수업교사", "q": "수업 내용이나 평가 방법을 운영 중에 변경할 수 있나요?", "a": ["교사가 임의로 변경하지 않고, 동일 과목 담당 교사와 거점학교에 협의하여 필요한 절차를 거칩니다. 이미 안내한 내용과 학생의 수강 선택에 영향을 줄 수 있으므로 변경 사유와 내용을 충분히 설명해야 합니다."]}, {"n": 65, "c": "수업교사", "q": "수업 날짜나 시간을 변경할 때 학생들과 합의만 하면 되나요?", "a": ["학생들과 충분히 협의한 후 관련 기관에 공문으로 안내해야 합니다. 학교연합은 거점학교·회원학교, 지역연계는 거점학교·회원학교·교육지원청, 온라인은 충남온라인학교·회원학교·충남교육청 중등교육과에 안내합니다."]}, {"n": 66, "c": "수업교사", "q": "변경한 수업일에 참여하지 못하는 학생은 모두 출석인정결석으로 처리하나요?", "a": ["수업 일정이 변경되었다는 이유만으로 자동 인정되지는 않습니다. 변경 전 학생들의 참여 가능 여부를 충분히 확인하고, 부득이하게 참여하지 못하는 학생의 처리에 대해서는 거점학교 및 담당 교육청과 협의합니다."]}, {"n": 67, "c": "수업교사", "q": "수강생 전원이 정기고사·수학여행 등으로 출석인정결석이면 어떻게 하나요?", "a": ["실제 수업이 이루어지지 않는 상황을 출석인정 처리만으로 수업을 실시한 것으로 보아서는 안 됩니다. 학생들과 협의하여 수업일을 변경하거나 보강하고, 일정 변경 절차에 따라 안내합니다."]}, {"n": 68, "c": "수업교사", "q": "학생이 계속 결석하거나 연락이 되지 않으면 어떻게 하나요?", "a": ["차시별 출결과 연락 상황을 기록하고 거점학교에 신속히 알립니다. 거점학교와 회원학교가 학생의 상황을 확인하도록 협조하며, 수강 포기·학적변동·이수 기준 미도달 여부를 교사가 임의로 확정하지 않습니다."]}, {"n": 69, "c": "수업교사", "q": "학생이 포기했다고 하지만 아직 수강생 명단에 남아 있으면 어떻게 하나요?", "a": ["학생에게 소속교를 통한 수강포기원 제출 여부를 확인하도록 안내하고 거점학교에 상황을 알립니다. 공식 처리 전에는 출결 사실을 기록하며, 최종 처리 결과를 확인한 후 명단과 출석부를 정리합니다."]}, {"n": 70, "c": "수업교사", "q": "출결은 하루에 한 번만 기록하면 되나요?", "a": ["출결은 수업일 단위가 아니라 차시별로 확인·기록합니다. 같은 날 여러 차시를 운영해도 학생의 실제 참여 여부를 각 차시별로 관리해야 합니다. 수업일, 운영 차시 및 총 수업시간도 계획과 일치하는지 확인합니다.", "※ 2027학년도 나이스 개선에 따라 나이스플러스로 입력한 출결을 정규 외 과목별 출결관리에 반영하고, 최소 성취수준 관련 현황 관리에 활용할 수 있도록 할 예정입니다. 구체적인 입력·처리 방법은 해당 학년도 나이스 운영 안내를 따릅니다."]}, {"n": 71, "c": "수업교사", "q": "지각·조퇴 또는 수업 중 일부 시간만 참여한 학생은 어떻게 처리하나요?", "a": ["실제 참여 상황을 확인하여 거점학교의 출결 기준에 따라 처리합니다. 차시별 출석 인정 시간 등 명확한 기준이 필요한 경우에는 교사 개인이 임의의 기준을 정하지 않고 거점학교 및 담당 교육청에 확인합니다."]}, {"n": 72, "c": "수업교사", "q": "출석인정 대상 일정이 있는 학생이 실제 수업에 참여하면 어떻게 기록하나요?", "a": ["출석인정 대상 일정이 있더라도 실제로 수업에 참여했다면 참여 사실을 확인하여 기록합니다. 수업에 참여한 시간과 학교 행사 일정이 일부만 겹치는 경우에는 차시별 실제 상황을 확인합니다."]}, {"n": 73, "c": "수업교사", "q": "수업 중 평가에 참여하지 못한 학생에게는 모두 같은 점수를 주나요?", "a": ["결시 사유와 과목별 평가계획에 따라 처리합니다. 가능한 경우 추가 평가 기회를 제공하되, 인정점·기본점수·미제출자 등의 점수를 교사가 임의로 일괄 적용하지 않습니다. 판단이 어려우면 거점학교 평가 담당자와 협의합니다."]}, {"n": 74, "c": "수업교사", "q": "수행평가를 입력하기 전에 나이스에서 무엇을 확인해야 하나요?", "a": ["본인의 교과 권한, 담당 분반과 학생 명단, 평가 영역명 및 반영비율 등을 확인합니다. 평가 영역명과 반영비율은 심의된 최종 평가계획과 일치해야 합니다. 공통 사전작업은 거점학교 안내에 따라 교과 대표 또는 협력교사가 처리합니다."]}, {"n": 75, "c": "수업교사", "q": "학생에게 수행평가 점수를 확인받아야 하나요?", "a": ["학생에게 평가 결과와 이의신청 방법을 안내하고, 거점학교가 정한 방법으로 확인 절차를 진행합니다. 확인 자료의 작성·제출·보관 방법은 거점학교 안내를 따릅니다. 온라인 수업이라는 이유로 결과 확인 절차를 생략하지 않습니다."]}, {"n": 76, "c": "수업교사", "q": "선택과목은 출석률로 이수한다면 평가를 실시하지 않아도 되나요?", "a": ["이수 기준과 성적 평가는 구분됩니다. 선택과목도 과목의 성격과 평가계획에 따라 평가하고 성적을 처리해야 합니다. 교양교과 등 별도 처리 대상은 해당 기준을 따릅니다."]}, {"n": 77, "c": "수업교사", "q": "교양과목이 수행평가 사전작업 화면에서 조회되지 않으면 오류인가요?", "a": ["교양과목은 일반 교과와 성적 처리 방식이 다르므로 수행평가 사전작업 화면에서 조회되지 않을 수 있습니다. 교양교과 이수관리 등 해당 메뉴와 교과 권한을 확인하고, 필요한 경우 거점학교에 문의합니다."]}, {"n": 78, "c": "수업교사", "q": "보충지도나 추가학습 대상 학생이 예상되면 언제 보고해야 하나요?", "a": ["학기말까지 기다리지 않고 출결과 평가 상황을 지속적으로 확인하여 거점학교에 알립니다. 대상 학생이 발생하면 출석부와 필요한 자료를 함께 제출하고, 거점학교 운영계획에 따라 지도를 진행합니다."]}, {"n": 79, "c": "수업교사", "q": "보충지도·추가학습 방법이나 시간을 수업교사가 정하면 되나요?", "a": ["거점학교의 최소 성취수준 보장지도 운영계획에 따라 실시합니다. 해당 학년도 충청남도 최소 성취수준 보장지도 운영계획을 참고하며, 지도 시기·방법·시간·결과 제출 등은 거점학교와 협의하여 운영합니다. 과목별로 임의의 이수 기준을 정하지 않습니다."]}, {"n": 80, "c": "수업교사", "q": "세부능력 및 특기사항은 누가 작성하나요?", "a": ["학생을 수업하고 평가한 수업교사가 실제 관찰한 학습 과정과 활동을 근거로 작성합니다. 거점학교의 점검·전송 절차를 거쳐 회원학교가 학생부에 반영합니다."]}, {"n": 81, "c": "수업교사", "q": "세특 수정 요청을 받아 고쳤다면 추가로 할 일이 있나요?", "a": ["수정한 학생의 소속교·성명·수강 과목 등 필요한 정보를 거점학교에 알려 재전송을 요청해야 합니다. 수정만으로 회원학교 학생부에 자동 반영되는 것은 아니므로 재전송과 회원학교의 재반영이 이루어져야 합니다."]}, {"n": 82, "c": "수업교사", "q": "나이스에서 담당 과목이나 학생이 보이지 않으면 어떻게 하나요?", "a": ["접속 기관, 학년도·학기 등 조회 조건, 교과 권한과 분반·학생 편성 여부를 확인합니다. 확인 후에도 조회되지 않으면 거점학교에 문의하며, 학생을 임의로 추가하거나 다른 과목에 입력하지 않습니다."]}, {"n": 83, "c": "수업교사", "q": "나이스 2차 인증이 없는 초·중학교 교사는 어디에 신청해야 하나요?", "a": ["공동교육과정 업무를 위해 나이스 2차 인증이 필요한 초·중학교 교사 중 해당 인증이 등록되어 있지 않은 교사는 본인 소속학교의 나이스 권한관리자에게 신청합니다. 거점학교에 신청하는 것이 아니며, 거점학교의 교과 권한 부여와 소속학교의 2차 인증은 별도 절차입니다. 관련 메뉴가 보이지 않는 경우에도 소속학교 권한관리자에게 확인합니다."]}, {"n": 84, "c": "수업교사", "q": "지역연계 공동교육과정을 교사 판단으로 온라인 수업으로 바꿀 수 있나요?", "a": ["학교연합·지역연계 공동교육과정은 대면 수업을 원칙으로 합니다. 부득이하게 수업 방식 변경이 필요한 경우에는 사전에 거점학교와 해당 교육지원청 등 담당기관에 협의하여 허용 여부와 운영 조건을 확인해야 합니다."]}, {"n": 85, "c": "수업교사", "q": "현장체험학습을 계획할 때는 무엇을 확인해야 하나요?", "a": ["수업 인정 여부와 운영 차시, 예산, 이동 및 활동 안전관리 계획 등을 사전에 확인해야 합니다. 구체적인 운영 가능 범위는 해당 학년도 안내에 따라 거점학교 및 담당 교육청과 협의하고, 학생과 보호자에게 필요한 사항을 안내합니다."]}, {"n": 86, "c": "수업교사", "q": "공동교육과정 이동 중 안전사고에 대비하여 무엇을 준비해야 하나요?", "a": ["거점학교와 회원학교는 운영 형태에 맞는 안전관리 계획을 마련하고, 수업교사는 이동·실험·실습 등 수업 특성에 따른 사전 안전교육을 실시합니다. 사고 발생 시에는 정해진 보고·대응 절차에 따라 거점학교와 회원학교에 신속히 알립니다."]}, {"n": 87, "c": "수업교사", "q": "강사비를 받는 공동교육과정 수업 시간에 초과근무수당도 신청할 수 있나요?", "a": ["동일한 수업 시간에 강사비와 초과근무수당을 중복하여 신청하지 않습니다. 수업 외 별도 업무의 수당 적용 여부는 소속교 복무·급여 담당자에게 확인합니다."]}, {"n": 88, "c": "수업교사", "q": "수업이 끝나면 어떤 업무를 마무리해야 하나요?", "a": ["학생 평가 결과 확인, 성적 입력·마감, 출결 정리, 보충지도·추가학습 결과 제출, 세특 입력 및 필요한 증빙자료 제출 등을 거점학교가 안내한 일정에 따라 완료합니다. 수업 종료일과 성적·학생부 자료 제출일이 다를 수 있으므로 학기말 처리 일정을 미리 확인해야 합니다."]}];
+const COURSES=[["국어", "2-2", "독서토론과 글쓰기", "4"], ["국어", "2-2", "주제탐구독서", "3"], ["국어", "2-2", "문학과영상", "3"], ["국어", "2-2", "언어생활탐구", "3"], ["국어", "2-2", "매체의사소통", "3"], ["국어", "2-2", "직무의사소통", "3"], ["수학", "2-1", "인공지능수학", "2"], ["수학", "2-1", "경제수학", "2"], ["수학", "2-1", "이산수학", "3"], ["수학", "3", "미적분Ⅱ", "3"], ["수학", "3", "전문수학", "3"], ["수학", "3", "고급미적분", "3"], ["수학", "3", "고급대수", "3"], ["수학", "3", "고급기하", "3"], ["영어", "2-1", "영미문학읽기", "3~4"], ["영어", "2-1", "실생활영어회화", "3"], ["영어", "2-1", "영어발표와토론", "3~4"], ["영어", "2-2", "심화영어", "3"], ["영어", "2-2", "심화영어독해Ⅰ", "3~4"], ["영어", "2-2", "심화영어회화Ⅰ", "3~4"], ["영어", "2-2", "심화영어작문Ⅰ", "3~4"], ["영어", "2-2", "심화영어독해와작문", "3~4"], ["영어", "2-2", "미디어영어", "3"], ["영어", "2-2", "세계문화와영어", "3"], ["영어", "2-2", "직무영어", "3"], ["영어", "3", "심화영어작문Ⅱ", "3~4"], ["영어", "3", "심화영어독해Ⅱ", "3~4"], ["영어", "3", "심화영어회화Ⅱ", "3~4"], ["사회", "2-1", "세계사", "3"], ["사회", "2-1", "경제", "2"], ["사회", "2-1", "한국지리탐구", "3"], ["사회", "2-1", "윤리와사상", "3"], ["사회", "2-1", "도시의미래탐구", "3"], ["사회", "2-1", "정치", "3"], ["사회", "2-1", "법과사회", "3"], ["사회", "2-1", "인문학과윤리", "3"], ["사회", "2-1", "국제관계의이해", "3"], ["사회", "2-1", "사회문제탐구", "3"], ["사회", "2-1", "금융과경제생활", "3"], ["사회", "2-1", "윤리문제탐구", "3"], ["사회", "2-1", "기후변화와지속가능한세계", "3"], ["사회", "2-1", "동아시아 역사 기행", "3"], ["사회", "2-1", "역사로 탐구하는 현대 세계", "3"], ["사회", "2-2", "사회탐구방법", "3"], ["사회", "2-2", "국제정치", "2"], ["사회", "2-2", "국제경제", "2"], ["사회", "2-2", "국제법", "2"], ["사회", "2-2", "지역이해", "2"], ["사회", "3", "사회과제 연구", "3"], ["과학", "2-1", "물리학", "3"], ["과학", "2-1", "화학", "3"], ["과학", "2-1", "생명과학", "3"], ["과학", "2-1", "지구과학", "3"], ["과학", "2-1", "과학과제연구", "2~3"], ["과학", "2-1", "융합과학탐구", "3"], ["과학", "2-1", "기후변화와환경생태", "3"], ["과학", "2-1", "과학의역사와문화", "3"], ["과학", "2-2", "역학과에너지", "3"], ["과학", "2-2", "전자기와양자", "3"], ["과학", "2-2", "물질과에너지", "3"], ["과학", "2-2", "화학반응의세계", "3"], ["과학", "2-2", "세포와물질대사", "3"], ["과학", "2-2", "생물의유전", "3"], ["과학", "2-2", "지구시스템과학", "3"], ["과학", "2-2", "행성우주과학", "3"], ["과학", "3", "고급물리학", "3"], ["과학", "3", "고급화학", "3"], ["과학", "3", "고급생명과학", "2~3"], ["과학", "3", "고급지구과학", "2~3"], ["기술·가정/정보", "1", "생애설계와자립", "3"], ["기술·가정/정보", "1", "아동발달과부모", "3"], ["기술·가정/정보", "1", "로봇과공학세계", "3"], ["기술·가정/정보", "1", "생활과학탐구", "3"], ["기술·가정/정보", "1", "지식재산일반", "3"], ["기술·가정/정보", "1", "소프트웨어와생활", "3"], ["기술·가정/정보", "1", "인공지능기초", "3"], ["기술·가정/정보", "1", "데이터과학", "3"], ["기술·가정/정보", "1", "창의공학설계", "3"], ["기술·가정/정보", "1", "프로그래밍", "3"], ["기술·가정/정보", "1", "정보과학", "3"], ["제2외국어/한문", "1", "독일어", "3"], ["제2외국어/한문", "1", "프랑스어", "3"], ["제2외국어/한문", "1", "스페인어", "3"], ["제2외국어/한문", "1", "중국어", "3"], ["제2외국어/한문", "1", "일본어", "3"], ["제2외국어/한문", "1", "러시아어", "3"], ["제2외국어/한문", "1", "아랍어", "3"], ["제2외국어/한문", "1", "베트남어", "3"], ["제2외국어/한문", "1", "한문", "3"], ["제2외국어/한문", "2-2", "독일어회화", "3"], ["제2외국어/한문", "2-2", "프랑스어회화", "3"], ["제2외국어/한문", "2-2", "스페인어회화", "3"], ["제2외국어/한문", "2-2", "중국어회화", "3"], ["제2외국어/한문", "2-2", "일본어회화", "3"], ["제2외국어/한문", "2-2", "러시아어회화", "3"], ["제2외국어/한문", "2-2", "아랍어회화", "3"], ["제2외국어/한문", "2-2", "베트남어회화", "3"], ["제2외국어/한문", "2-2", "한문고전읽기", "3"], ["보건·복지", "2-1", "인체구조와기능", "3"], ["보건·복지", "2-2", "간호의기초", "3"], ["교양", "1", "진로와직업", "2"], ["교양", "1", "생태와환경", "2"], ["교양", "1", "인간과철학", "2"], ["교양", "1", "인간과심리", "2"], ["교양", "1", "인간과경제활동", "2"], ["교양", "1", "보건", "2"], ["교양", "2-1", "논리와사고", "2"], ["교양", "2-1", "교육의이해", "2"], ["교양", "2-2", "논술", "3"]];
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+const KME=['국어','수학','영어'];
+const WHEN={'1':'1학년','2-1':'2학년 1학기','2-2':'2학년 2학기','3':'3학년'};
+const ord=(g,s)=>(g-1)*2+(s-1); // 1-1:0 ... 3-2:5
+const whenOrd={'1':0,'2-1':2,'2-2':3,'3':4};
+
+/* 과목 표 */
+function drawCourses(){
+ const q=$('#cq').value.trim().toLowerCase();
+ const groups=[...new Set(COURSES.map(c=>c[0]))];
+ $('#ctable tbody').innerHTML=groups.map(g=>{
+  const cells=['1','2-1','2-2','3'].map(w=>COURSES.filter(c=>c[0]===g&&c[1]===w&&(!q||c[2].toLowerCase().includes(q)||g.includes(q))).map(c=>esc(c[2])+'('+esc(c[3])+')').join(', '));
+  if(q&&cells.every(x=>!x))return '';
+  return '<tr><td><b>'+esc(g)+'</b></td>'+cells.map(x=>'<td>'+x+'</td>').join('')+'</tr>';
+ }).join('')||'<tr><td colspan="5">맞는 과목이 없어요.</td></tr>';
+}
+$('#cq').addEventListener('input',drawCourses);drawCourses();
+$('#courselist').innerHTML=COURSES.map(c=>'<option value="'+esc(c[2])+'">'+esc(c[0])+' · '+esc(WHEN[c[1]])+' · '+esc(c[3])+'학점</option>').join('');
+
+/* 점검표: 과목 입력 */
+const KNOWS=[
+ ['att','수업의 2/3 이상 출석해야 이수된다(3학점이면 48차시 중 32차시).'],
+ ['common','공통과목은 학업성취율 40% 이상도 넘어야 한다.'],
+ ['guar','기준에 못 미치면 최소 성취수준 보장지도·추가학습에 참여해야 학점을 받을 수 있다.'],
+ ['rec','성취도와 세부능력 및 특기사항이 학생부에 기록되므로 수행평가·수업에 성실히 참여해야 한다.'],
+ ['drop','수업 시작 후 2주가 지나면 포기할 수 없고, 빠지면 미인정 결석으로 성적이 산출된다.'],
+ ['att2','학교 행사·정기고사로 빠질 때는 소속 학교가 공문을 보내야 출석으로 인정된다.']
+];
+$('#knows').innerHTML=KNOWS.map(k=>'<label class="cb"><input type="checkbox" data-k="'+k[0]+'"> '+esc(k[1])+'</label>').join('');
+let sid=0;
+function subjRow(){
+ sid++;const id='s'+sid;const d=document.createElement('div');d.className='subj';d.dataset.id=id;
+ d.innerHTML='<div class="hd"><b>과목 '+(document.querySelectorAll('.subj').length+1)+'</b><button type="button" class="x" data-del>삭제</button></div>'+
+ '<div class="f"><label for="'+id+'n">과목명</label><input type="text" id="'+id+'n" list="courselist" placeholder="예: 고급물리학, 심화영어독해Ⅱ" data-f="name"><div class="auto" data-auto></div></div>'+
+ '<div class="row3"><div class="f"><label for="'+id+'t">유형</label><select id="'+id+'t" data-f="type"><option value="온라인">온라인</option><option value="지역연계">지역연계</option><option value="학교연합">학교연합</option><option value="온라인학교">충남온라인학교(일과 내)</option></select></div>'+
+ '<div class="f"><label for="'+id+'r">운영</label><select id="'+id+'r" data-f="reg"><option value="out">정규 외(순증)</option><option value="in">정규 내</option></select></div>'+
+ '<div class="f"><label for="'+id+'c">학점</label><input type="number" id="'+id+'c" min="1" max="8" value="3" data-f="cr" inputmode="numeric"></div></div>'+
+ '<div class="f"><label for="'+id+'g">교과(군)</label><select id="'+id+'g" data-f="grp"><option>국어</option><option>수학</option><option>영어</option><option selected>그 외 교과</option></select></div>'+
+ '<label class="cb"><input type="checkbox" data-f="inPlan"> 우리 학교 3년 교육과정 편제표에 있는 과목이다</label>'+
+ '<label class="cb" data-closed hidden><input type="checkbox" data-f="closed"> 편제되어 있었지만 수강신청 시작일 기준 폐강이 확정됐다</label>'+
+ '<label class="cb"><input type="checkbox" data-f="done"> 이미 이수했거나 지금 듣고 있다(유형 무관)</label>'+
+ '<div class="f"><label for="'+id+'p">이 교과(군)의 공통과목과 선이수 과목(Ⅰ 등)을</label><select id="'+id+'p" data-f="pre"><option value="">아직 확인 안 함</option><option value="y">이수했다(또는 이번 학기 전에 이수 완료)</option><option value="n">이수하지 않았다</option><option value="x">선이수 과목이 없는 과목이다</option></select></div>';
+ $('#subjects').appendChild(d);
+ d.querySelector('[data-del]').onclick=()=>{d.remove();renum();run()};
+ const nm=d.querySelector('[data-f=name]');
+ nm.addEventListener('change',()=>{const c=COURSES.find(x=>x[2]===nm.value.trim());if(c){d.querySelector('[data-f=cr]').value=parseInt(c[3]);d.querySelector('[data-f=grp]').value=KME.includes(c[0])?c[0]:'그 외 교과';}run()});
+ d.querySelector('[data-f=inPlan]').addEventListener('change',e=>{d.querySelector('[data-closed]').hidden=!e.target.checked;run()});
+ renum();
+}
+function renum(){document.querySelectorAll('.subj').forEach((s,i)=>s.querySelector('.hd b').textContent='과목 '+(i+1))}
+$('#add').onclick=()=>{if(document.querySelectorAll('.subj').length<5){subjRow();run()}};
+document.querySelector('.checker').addEventListener('input',run);
+document.querySelector('.checker').addEventListener('change',run);
+$('#reset').onclick=()=>{$('#subjects').innerHTML='';document.querySelectorAll('.checker input[type=checkbox]').forEach(c=>c.checked=false);
+ $('#grad').value=192;$('#schoolTotal').value=174;$('#schoolKME').value='';$('#creative').value=18;$('#prevPlus').value=0;$('#prevPlusKME').value=0;subjRow();run()};
+
+const num=(id,def)=>{const v=parseFloat($(id).value);return isNaN(v)?def:v};
+let lastText='';
+function run(){
+ const g=+$('#grade').value,s=+$('#sem').value,o=ord(g,s);
+ const approved=$('#approved').checked,makeup=$('#makeup').checked;
+ const subs=[...document.querySelectorAll('.subj')].map(d=>{const v=f=>d.querySelector('[data-f='+f+']');
+  const name=v('name').value.trim();const c=COURSES.find(x=>x[2]===name);
+  const a=d.querySelector('[data-auto]');a.textContent=c?(c[0]+' · '+WHEN[c[1]]+'부터 · '+c[3]+'학점(2027 온라인 지원 과목)'):(name?'목록에 없는 과목이면 학점과 교과(군)를 직접 골라 주세요.':'');
+  return {name:name||'(이름 없음)',typed:!!name,course:c,type:v('type').value,reg:v('reg').value,cr:Math.max(0,parseFloat(v('cr').value)||0),grp:v('grp').value,inPlan:v('inPlan').checked,closed:v('closed').checked,done:v('done').checked,pre:v('pre').value};
+ }).filter(x=>x.typed);
+ const out=[];const add=(st,t,p,calc)=>out.push({st,t,p,calc});
+ // A 과목 수
+ const n=subs.length;
+ if(!n){add('na','학기당 수강 과목 수','신청할 과목을 넣어 주세요.');}
+ else{
+  const byType={};subs.forEach(x=>byType[x.type]=(byType[x.type]||0)+1);
+  const dupType=Object.entries(byType).filter(([k,v])=>v>1&&k!=='온라인학교').map(([k])=>k);
+  if(n<=2&&!dupType.length)add('ok','학기당 수강 과목 수',n+'과목으로 기준(최대 2과목) 안이에요.');
+  else if(n>2&&(approved||makeup))add('warn','학기당 수강 과목 수',n+'과목이에요. '+(approved?'도교육청 승인을 받은 경우에만 가능해요. ':'')+(makeup?'미이수 학생 추가 수강은 직전 학기까지 미이수한 학점 안에서만 가능해요. ':'')+'담당 선생님께 꼭 확인하세요.');
+  else if(n>2)add('bad','학기당 수강 과목 수',n+'과목은 기준(공동교육과정+온라인학교 합쳐 최대 2과목)을 넘어요. 과목을 줄여 주세요.');
+  if(dupType.length)add('warn','유형별 1과목',dupType.join('·')+' 유형에 2과목 이상이에요. 유형별로 1과목씩 신청하는 것이 원칙이에요(예: 지역연계 1 + 온라인 1).');
+ }
+ // B 편제 / C 중복 / D 위계 / E 학년
+ subs.forEach(x=>{
+  const tag='「'+x.name+'」';
+  if(x.inPlan&&!x.closed)add('bad',tag+' 우리 학교 편제','우리 학교 3년 편제표에 있는 과목은 신청할 수 없어요(내가 선택하지 않았거나 다른 학년에 편제돼도 마찬가지).');
+  else if(x.inPlan&&x.closed)add('warn',tag+' 우리 학교 편제','폐강이 확정된 과목은 신청할 수 있어요. 학교가 폐강 근거(내부결재 등)를 갖추고 있는지 담당 선생님께 확인하세요.');
+  else add('ok',tag+' 우리 학교 편제','우리 학교에 편제되지 않은 과목이라 신청 대상이에요.');
+  if(x.done)add('bad',tag+' 중복 이수','이미 이수했거나 듣고 있는 과목은 유형이 달라도 다시 들을 수 없어요.');
+  const roman=/Ⅱ|II|2$/.test(x.name),adv=/^고급|^심화|^전문/.test(x.name.replace(/\s/g,''));
+  if(x.pre==='')add('warn',tag+' 과목 위계','공통과목·선이수 과목 이수 여부를 골라 주세요. 위계가 있는 과목은 선이수 과목을 이수해야 신청할 수 있어요.');
+  else if(x.pre==='n')add('bad',tag+' 과목 위계','공통과목과 선이수 과목을 먼저 이수해야 신청할 수 있어요. 예외가 필요하면 소속 학교가 거점학교·교육청과 협의해요.');
+  else if(x.pre==='x'&&(roman||adv))add('warn',tag+' 과목 위계','이름으로 보면 선이수 과목이 있을 수 있는 과목이에요(Ⅱ·고급·심화·전문). 강좌 목록 비고를 다시 확인하세요.');
+  else if(roman)add('ok',tag+' 과목 위계','Ⅱ 과목이에요. 같은 이름의 Ⅰ 과목을 이수했는지 한 번 더 확인했어요.');
+  else if(adv)add('warn',tag+' 과목 위계','고급·심화·전문 과목은 선이수 과목이 있어요. 강좌 목록 비고의 선이수 안내(예: 고급 과목의 기본 과목)를 확인하세요.');
+  else add('ok',tag+' 과목 위계','선이수 과목 조건을 확인했어요.');
+  if(x.type==='온라인'&&(o===0||o===5))add('bad',tag+' 수강 학년','온라인 공동교육과정은 1학년 2학기 ~ 3학년 1학기 학생만 신청할 수 있어요.');
+  else if(x.course&&o<whenOrd[x.course[1]])add('warn',tag+' 수강 학년','이 과목은 '+WHEN[x.course[1]]+'부터 신청하도록 안내된 과목이에요. 지금 학년·학기에 들어도 되는지 확인하세요.');
+ });
+ // F 학업 관리 이해
+ const kn=[...document.querySelectorAll('#knows input')];const kc=kn.filter(k=>k.checked).length;
+ if(kc===kn.length)add('ok','학업 관리 이해','6개 모두 알고 있어요. 출석과 수행평가를 꾸준히 챙기면 이수와 세특 기록으로 이어져요.');
+ else add(kc>=4?'warn':'bad','학업 관리 이해',kc+' / '+kn.length+'개를 알고 있어요. 체크하지 않은 항목은 아래 ‘이수·평가·학생부’에서 확인하세요.');
+ // G 192 순증
+ const grad=num('#grad',192),schoolTotal=num('#schoolTotal',174),creative=num('#creative',18),prev=num('#prevPlus',0),prevK=num('#prevPlusKME',0);
+ const plusNow=subs.filter(x=>x.reg==='out').reduce((a,x)=>a+x.cr,0);
+ const plusK=subs.filter(x=>x.reg==='out'&&KME.includes(x.grp)).reduce((a,x)=>a+x.cr,0);
+ const totalPlus=prev+plusNow;const base=schoolTotal+creative;const expect=base+totalPlus;
+ add(totalPlus>0?'ok':'na','192학점 대비 순증','예상 총 이수 '+expect+'학점, 졸업 기준 '+grad+'학점보다 '+(expect-grad>=0?'+':'')+(expect-grad)+'학점이에요. 공동교육과정 순증은 '+totalPlus+'학점(이번 학기 '+plusNow+'학점)이에요.',
+  '학교 편제 교과 '+schoolTotal+' + 창체 '+creative+' + 순증(이전 '+prev+' + 이번 '+plusNow+') = '+expect+'학점 · 졸업 기준 대비 '+(grad?Math.round(expect/grad*1000)/10:0)+'%');
+ // H 국수영
+ const sK=parseFloat($('#schoolKME').value);
+ const over=Math.max(0,schoolTotal-174)+totalPlus;const overK=prevK+plusK;
+ if(isNaN(sK))add('na','국·수·영 81학점','학교 편제상 내가 듣는 국·수·영 학점을 넣으면 확인할 수 있어요.');
+ else add(sK<=81?'ok':'bad','국·수·영 81학점','학교 편제(174학점 이내) 국·수·영 '+sK+'학점'+(sK<=81?'으로 81학점 이하예요.':'으로 81학점을 넘어요. 담당 선생님께 확인하세요.'));
+ if(over>0){const r=Math.round(overK/over*1000)/10;
+  add(r<=50?'ok':'bad','174 초과분의 국·수·영 비율','174학점을 넘는 '+over+'학점 중 국·수·영이 '+overK+'학점('+r+'%)이에요.'+(r<=50?' 50% 이하라 기준 안이에요.':' 50%를 넘어요. 국·수·영이 아닌 교과를 함께 신청하거나 과목을 조정하세요.'),
+  '(이전 순증 국·수·영 '+prevK+' + 이번 '+plusK+') ÷ (174 초과 편성 '+Math.max(0,schoolTotal-174)+' + 순증 '+totalPlus+') = '+r+'%');}
+ else add('na','174 초과분의 국·수·영 비율','교과 이수 학점이 174학점을 넘지 않아 이 기준은 해당 없어요.');
+ if(!isNaN(sK)){const allK=sK+overK,allT=schoolTotal+totalPlus;add('na','참고: 전체 교과 중 국·수·영','공동교육과정을 포함한 교과 '+allT+'학점 중 국·수·영 '+allK+'학점('+(allT?Math.round(allK/allT*1000)/10:0)+'%)이에요.');}
+ // 요약
+ const bad=out.filter(x=>x.st==='bad').length,warn=out.filter(x=>x.st==='warn').length,ok=out.filter(x=>x.st==='ok').length;
+ const judged=bad+warn+ok;
+ $('#sumBig').textContent=!n?'과목을 넣으면 결과가 보여요':bad?'다시 확인할 항목이 '+bad+'개 있어요':warn?'신청 가능, 확인할 항목 '+warn+'개':'기준을 모두 충족했어요';
+ $('#sumBar').style.width=(judged?Math.round(ok/judged*100):0)+'%';
+ $('#sumBar').style.background=bad?'var(--bad)':warn?'var(--warn)':'var(--ok)';
+ $('#sumSub').textContent=n?('충족 '+ok+' · 확인 필요 '+warn+' · 어긋남 '+bad):'';
+ const L={ok:'충족',warn:'확인 필요',bad:'어긋남',na:'참고'};
+ $('#checks').innerHTML=out.map(x=>'<div class="ck '+x.st+'"><div class="t"><span class="s">'+L[x.st]+'</span><span>'+esc(x.t)+'</span></div><p>'+esc(x.p)+'</p>'+(x.calc?'<div class="calc">'+esc(x.calc)+'</div>':'')+'</div>').join('');
+ lastText='[공동교육과정 수강 점검] '+g+'학년 '+s+'학기\n'+subs.map(x=>'- '+x.name+' ('+x.type+', '+(x.reg==='out'?'정규 외':'정규 내')+', '+x.cr+'학점)').join('\n')+'\n'+out.map(x=>'['+L[x.st]+'] '+x.t+': '+x.p).join('\n');
+}
+$('#copy').onclick=async()=>{try{await navigator.clipboard.writeText(lastText);$('#copied').textContent='복사했어요';}catch(e){$('#copied').textContent='복사가 막혀 있어요. 화면을 직접 캡처해 주세요.';}setTimeout(()=>$('#copied').textContent='',2500)};
+subjRow();run();
+
+/* 역할별 안내 */
+const MAN=[
+ ['학생',[
+  ['신청 전','우리 학교 3년 편제표에서 듣고 싶은 과목이 없는지 확인해요.','이미 들은 과목·Ⅰ/Ⅱ 순서·학기당 2과목을 점검해요(위 ‘나의 점검’ 활용).','담임·공동교육과정 담당 선생님과 진로·학업 상담을 해요.','온라인은 온마당에서 신청하고 손으로 쓴 학업계획서 사진을 올려요(1인 1강좌).'],
+  ['수업 중','첫 수업에서 강의계획서와 평가계획을 꼭 확인해요(수강 포기는 수업 시작 후 2주 안).','차시별로 출석이 기록돼요. 2/3 이상 출석이 이수 기준이에요.','학교 행사·정기고사로 빠지면 소속 학교에 미리 알려 출석 인정 공문을 요청해요.','수행평가와 수업 활동이 성취도와 세특이 돼요.'],
+  ['학기 말','이수 기준에 못 미치면 보장지도·추가학습 안내를 받고 꼭 참여해요.','만족도 조사에 참여해요.','학생부에 성적과 세특이 반영됐는지 담임 선생님과 확인해요.']]],
+ ['학부모',[
+  ['알아 두세요','공동교육과정은 정규 교육과정으로, 성적(성취도)과 세특이 학생부에 기록돼요. 석차등급은 없어요.','수업료는 없어요. 지역연계는 거점학교로 직접 등교해요.','학생 이동은 보호자 책임 아래 이루어지며, 수업 중·등하교 사고는 소속 학교를 통해 학교안전공제회에 신청할 수 있어요.'],
+  ['함께 확인해 주세요','자녀가 학기당 2과목을 넘지 않게, 학교에 없는 과목으로 신청했는지 함께 봐 주세요.','방과 후·야간·주말 수업이 다른 일정과 겹치지 않는지 확인해 주세요.','수강 포기는 수업 시작 후 2주 안에만, 수강포기원(학생·보호자 서명)으로 할 수 있어요.']]],
+ ['지도교사(수업교사)',[
+  ['수업 전','수업계획서·평가계획을 작성해 거점학교에 제출해요(같은 과목 여러 분반은 공동 평가계획).','확정된 평가계획을 수강 포기 기간 안에 학생에게 안내해요.','(온라인) 마주온 온배움터에 수업을 개설하고 최종 수강 학생을 등록해요.','중등교원 자격이 없는 강사는 협력교사와 코티칭해요.'],
+  ['수업 중','출결은 차시별로 기록해요. 수업 일정 변경은 학생과 협의 후 공문으로 안내해요.','결석이 이어지거나 연락이 안 되는 학생은 거점학교에 바로 알려요.','보충지도·추가학습 대상이 예상되면 학기 말까지 기다리지 말고 알려요.','하루 3차시 이내(온라인)로 운영하는 것을 권장해요.'],
+  ['학기 말','성적 입력·마감, 출결 정리, 보장지도 결과 제출, 세특 입력을 거점학교 일정에 맞춰 마쳐요.','세특을 고쳤다면 거점학교에 재전송을 요청해요.','강사비를 받는 수업 시간에 초과근무수당을 중복 신청하지 않아요.']]],
+ ['담임·업무 담당 교사',[
+  ['학기 전','학생·보호자에게 공동교육과정을 안내하고 상담을 거쳐 신청하도록 지도해요.','학기당 2과목 초과, 중복 이수, 편제 여부(폐강 확정 제외)를 확인해요.','최종 수강 명단을 학급 학생과 대조하고 학생 정보·학사일정을 제출해요.'],
+  ['학기 중','출석인정 결석 요청 공문(학생정보·과목·사유·일시)을 보내요.','수강 포기는 2주 안에 수강포기원을 받아 공문으로 보내요.','(정규 내) 공동교육과정 출결을 학급 출결에 합산해요. 정규 외 출결은 입력하지 않아요.','나이스 확인요청은 [승인요청]·결재 후 [요청확인]까지 눌러야 끝나요.'],
+  ['학기 말','거점학교가 보낸 성적·세특 자료를 학생부에 개인별 반영하고 조회로 확인해요.','오류는 직접 고치지 않고 거점학교에 정정·재전송을 요청해요.','미도달 학생에게 보장지도·추가학습 일정을 안내하고 만족도 조사를 독려해요.']]]
+];
+let cur=0;
+function drawMan(){
+ $('#mtabs').innerHTML=MAN.map((m,i)=>'<button type="button" role="tab" aria-selected="'+(i===cur)+'" data-i="'+i+'">'+esc(m[0])+'</button>').join('');
+ $('#mpanel').innerHTML='<div class="grid3">'+MAN[cur][1].map(b=>'<div class="card"><h4>'+esc(b[0])+'</h4><ul class="chk">'+b.slice(1).map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul></div>').join('')+'</div>';
+}
+$('#mtabs').addEventListener('click',e=>{const b=e.target.closest('button');if(b){cur=+b.dataset.i;drawMan()}});
+drawMan();
+
+/* Q&A */
+const CATS=[['전체',null],['학생·학부모·공통','공통 사항'],['업무 담당자','공동교육과정 업무담당자'],['수업교사','수업교사']];
+let qc=null;
+$('#qchips').innerHTML=CATS.map((c,i)=>'<button type="button" aria-pressed="'+(i===0)+'" data-i="'+i+'">'+esc(c[0])+' '+(c[1]?QA.filter(q=>q.c===c[1]).length:QA.length)+'</button>').join('');
+function drawQA(){
+ const w=$('#qq').value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+ const hit=QA.filter(q=>(!qc||q.c===qc)&&w.every(x=>(q.q+' '+q.a.join(' ')).toLowerCase().includes(x)));
+ $('#qcount').textContent=hit.length+'개 질문';
+ $('#qlist').innerHTML=hit.map(q=>'<details class="q" id="q'+q.n+'"><summary><span class="n">Q'+q.n+'</span><span>'+esc(q.q)+'</span></summary><div class="a"><div class="cat">'+esc(q.c)+'</div>'+q.a.map(p=>'<p>'+esc(p)+'</p>').join('')+'</div></details>').join('')||'<p>맞는 질문이 없어요. 다른 낱말로 찾아보세요.</p>';
+}
+$('#qq').addEventListener('input',drawQA);
+$('#qchips').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;qc=CATS[+b.dataset.i][1];document.querySelectorAll('#qchips button').forEach(x=>x.setAttribute('aria-pressed',x===b));drawQA()});
+$('#qall').addEventListener('click',()=>{const ds=[...document.querySelectorAll('#qlist details')];const open=!ds.every(d=>d.open);ds.forEach(d=>d.open=open);$('#qall').textContent=open?'모두 접기':'모두 펼치기'});
+drawQA();
+document.addEventListener('click',e=>{const a=e.target.closest('a.qref');if(!a)return;const id=a.getAttribute('href').slice(1);
+ $('#qq').value='';qc=null;document.querySelectorAll('#qchips button').forEach((x,i)=>x.setAttribute('aria-pressed',i===0));drawQA();
+ const d=document.getElementById(id);if(d){e.preventDefault();d.open=true;d.classList.add('hl');d.scrollIntoView({block:'center'});setTimeout(()=>d.classList.remove('hl'),2200)}});
+}
+</script>
+
+<footer data-cne-footer style="margin:48px 0 0;padding:20px 16px;border-top:1px solid #ccc;font:14px/1.6 system-ui,sans-serif;color:#555;text-align:center">충청남도교육청 중등교육과 · 문의 중등교육팀 · 박소희 · 041-640-7221<br>게시 2026-11-26 · 이 페이지는 Claude의 도움을 받아 만들었습니다.</footer>
+</body>
+</html>
