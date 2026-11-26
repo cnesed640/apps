@@ -19,26 +19,5 @@
       }
     ],
     "url": "https://cnesed640.github.io/apps/check-gongdong/"
-  },
-  {
-    "slug": "deploy-test",
-    "title": "배포 시험 페이지",
-    "team": "중등교육팀",
-    "owner": "김시형",
-    "ext": "",
-    "desc": "배포 체계 시험용",
-    "audience": "schools",
-    "until": "",
-    "created": "2026-11-26T11:26:22+09:00",
-    "updated": "2026-11-26T11:26:22+09:00",
-    "uid": "zz-test",
-    "history": [
-      {
-        "id": "t1",
-        "kind": "new",
-        "at": "2026-11-26T11:26:22+09:00"
-      }
-    ],
-    "url": "https://cnesed640.github.io/apps/deploy-test/"
   }
 ]

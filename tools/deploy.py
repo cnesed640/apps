@@ -20,16 +20,20 @@ batch.json 형식:
       · 바닥글(data-cne-footer)이 없으면 표준 바닥글을 넣는다
       · 대상이 '학교·교사'면 검색 노출 막기(noindex)를 넣는다
   - remove: <slug>/ 삭제
+  - 고치기·내리기는 처음 올린 사람(uid)만 가능 (item에 "admin": true면 예외)
+  - 주민등록번호·휴대전화 번호 형태가 있으면 막음, sha256이 있으면 내용 일치 확인(불일치 → status "retry")
   - 첫 화면(index.html)과 catalog.json을 */meta.json으로 다시 만든다
   - 결과(JSON)를 표준 출력으로 낸다: 항목별 url, 상태, 오류 / 게시 기간 지난 페이지
 """
-import argparse, datetime as dt, html as H, json, re, shutil, sys
+import argparse, datetime as dt, hashlib, html as H, json, re, shutil, sys
 from pathlib import Path
 
 SLUG = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 TEAMS = ["과장실", "중등교육팀", "국제교육팀", "진로진학팀"]
 AUD = {"schools": "학교·교사", "public": "누구나"}
 MAX = 240_000
+BLOCK = [(re.compile(r"(?<!\d)\d{6}[- ]?[1-4]\d{6}(?!\d)"), "주민등록번호 형태"),
+         (re.compile(r"(?<!\d)01[016789][-. ]?\d{3,4}[-. ]?\d{4}(?!\d)"), "휴대전화 번호")]
 RESERVED = {"tools", "assets", "apps", "index", "catalog", "readme", "admin", "api", "static"}
 
 
@@ -71,6 +75,9 @@ def check(it):
             return "240KB 초과"
         if re.search(r"claude\.use\(|window\.claude", page):
             return "Claude 안에서만 되는 기능(claude.use)을 씀 — 밖에서는 작동하지 않음"
+        for rx, label in BLOCK:
+            if rx.search(page):
+                return f"{label}가 들어 있어 자동 게시를 막음 — 지우고 다시 내 주세요"
     return None
 
 
@@ -116,6 +123,15 @@ def main():
             err = "이미 있는 주소 이름"
         if not err and it["kind"] in ("update", "remove") and not d.exists():
             err = "게시된 페이지가 없음"
+        if not err and it["kind"] in ("update", "remove") and not it.get("admin"):
+            owner = json.loads((d / "meta.json").read_text(encoding="utf-8")).get("uid") if (d / "meta.json").exists() else None
+            if owner and owner != it.get("uid"):
+                err = "본인이 올린 페이지만 고치거나 내릴 수 있음"
+        if not err and it["kind"] != "remove" and it.get("sha256"):
+            if hashlib.sha256(it["html"].encode("utf-8")).hexdigest() != it["sha256"]:
+                r.update(status="retry", error="옮기는 중 내용이 달라짐(해시 불일치) — 다음 실행 때 다시 시도")
+                out.append(r)
+                continue
         if err:
             r.update(status="error", error=err)
             out.append(r)
